@@ -1,9 +1,11 @@
 
 # The Phone Shope PROJECT
 ## DAY 1, Friday: 
--[] make a plan:
+-[x]: make a plan on trello for today and part of tomorrow
 
---[]  
+-[x]: make a class relation diagram
+
+
 ## DAY 2, Saturday:
 ## DAY 3, Sunday:
 ## DAY 4, Monday:
