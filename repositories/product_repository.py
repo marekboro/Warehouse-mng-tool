@@ -1,6 +1,7 @@
 from db.run_sql import run_sql
 from models.product_type import ProductType
 from models.brand import Brand
+from models.product import Product
 
 
 def save(product):
@@ -14,17 +15,45 @@ def save(product):
         product.sale_price,
         product.warranty_length,
     ]
-    result = run_sql(sql,values)
-    id = result[0]['id']
+    result = run_sql(sql, values)
+    id = result[0]["id"]
     product.id = id
 
 
-# SAVE
-# SELECT ALL
+def select_all():
+    all_products = []
+    sql = "SELECT * FROM products"
+    results = run_sql(sql)
+
+    for row in results:
+        a_product = Product(
+            row["name"],
+            row["product_type"],
+            row["brand"],
+            row["description"],
+            row["distributor_price"],
+            row["sale_price"],
+            row["warranty_length"],
+            row["id"],
+        )
+        all_products.append(a_product)
+
+    return all_products
+
+def delete_all():
+    sql = "DELETE FROM products"
+    run_sql(sql)
+
+def delete(id):
+    sql = "DELETE FROM products WHERE id=%s"
+    values = [id]
+    run_sql(sql,values)
+
+
 # SELECT one using ID
-# DELETE ALL
-# DELETE one using ID
 # UPDATE one using ID
+
+
 
 # CREATE TABLE products(
 #     id SERIAL PRIMARY KEY,

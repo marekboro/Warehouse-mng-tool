@@ -50,7 +50,7 @@ brand_repository.delete(brand2.id)
 
 
 
-
+product_repository.delete_all()
 
 product_1_name = "Zapper"
 product_1_description = "It will zapp you into the future"
@@ -70,6 +70,7 @@ product_2_warranty_length = 140
 product_2 = Product(product_2_name,product_type_1,brand1,product_2_description,product_2_distributor_price,product_2_sale_price,product_2_warranty_length)
 product_repository.save(product_2)    
 
-
+product_repository.delete(product_1.id)
+#product_repository.delete(product_2.id)
 
 pdb.set_trace()

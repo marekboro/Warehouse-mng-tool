@@ -14,7 +14,7 @@ def select_all():
     results = run_sql(sql)
 
     for row in results:
-        a_type = ProductType(row['name'])
+        a_type = ProductType(row['name'],row['id'])
         product_types.append(a_type)
     
     return product_types
