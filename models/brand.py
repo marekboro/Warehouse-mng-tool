@@ -1,7 +1,6 @@
 class Brand():
-    def __init__(self, name, description, contact_information, warranty, id = None):
+    def __init__(self, name, description, warranty_details, id = None):
         self.name = name
         self.description = description
-        self.contact_information = contact_information
-        self.warranty = warranty
+        self.warranty_details = warranty_details
         self.id = id
