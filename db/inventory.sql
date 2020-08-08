@@ -31,3 +31,6 @@ CREATE TABLE stock (
     id SERIAL PRIMARY KEY,
     product_id SERIAL REFERENCES products(id)
 );
+
+-- NOTE TO SELF!  ALWAYS USE   createdb database_name  in CONSOLE!  - to create the database before working on it
+-- psql -d inventory -f db/inventory.sql in console to create the tables
