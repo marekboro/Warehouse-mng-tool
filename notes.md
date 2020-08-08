@@ -18,5 +18,15 @@
 - import run_sql from the relevant dir and the class from the location
 - create CRUD functions initiating them with the sql = "", values = [ This is a list] ,results = sql(sql,values)
 
+CREATE
+READ
+UPDATE
+DELETE
 
+#SAVE
+#SELECT ALL
+#SELECT one using ID
+#DELETE ALL
+#DELETE one using ID
+#UPDATE one using ID
 
