@@ -27,13 +27,13 @@ class TestBrand(unittest.TestCase):
         self.assertEqual(expected, actual)
 
     def test_description_of_brand(self):
-        # expected = "Description of Sonya Blade"
+        #expected = "Description of Sonya Blade"
         expected = "description of Who-Why"
         actual = self.brand_2.description
         self.assertEqual(expected, actual)
 
     def test_warranty_details_of_brand(self):
-        # expected = "we cover all damage"
+        #expected = "we cover all damage"
         expected = "We hear everything and thats a guarantee!"
         actual = self.brand_2.warranty_details
         self.assertEqual(expected, actual)
@@ -155,7 +155,31 @@ class TestProductTypeRepo(unittest.TestCase):
         product_type_repository.save(self.product_type_3)
         product_type_repository.save(self.product_type_4)
 
-        #self.types = product_type_repository.select_all()
+
+    def test_can_clear_product_type_table(self):
+        product_type_repository.delete_all()
+        expected = "a"                              #should Fail
+        expected = 0                                #should Pass
+        actual = len(product_type_repository.select_all())
+        self.assertEqual(expected, actual)
+
+
+    def test_can_save_to_table(self):
+        product_name_5 = "tester_name"
+        self.product_type_5 = ProductType(product_name_5)
+        product_type_repository.save(self.product_type_5)
+        expected = False                            #should Fail
+        expected = True                             #should Pass
+        all_types_in_list = product_type_repository.select_all()
+        all_type_names = []
+        for row in all_types_in_list:
+            all_type_names.append(row.name)
+        actual = self.product_type_5.name in all_type_names#all_types_in_list
+        self.assertEqual(expected,actual)
+        # print(self.product_type_5)
+        # print(product_type_repository.select_all()[0])
+        # print(actual)
+        product_type_repository.delete_all()
 
     def test_types_repo_content_names(self):
         #print(self.types)
@@ -167,6 +191,9 @@ class TestProductTypeRepo(unittest.TestCase):
         actual = results
         #actual = product_type_repository.select_all()
         self.assertEqual(expected, actual)
+        product_type_repository.delete_all()
+
+
 
        
 

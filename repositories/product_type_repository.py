@@ -23,4 +23,26 @@ def delete_all():
     sql = "DELETE FROM types"
     run_sql(sql)
 
+def delete(id):
+    sql = "DELETE FROM types WHERE id = %s"
+    values = [id]
+    run_sql(sql,values)
+
+def select(id):
+    sql = "SELECT FROM types WHERE id = %s"
+    values = [id]
+    result = run_sql(sql,values)[0]
+    product_type = ProductType(result['name'],result['id'])
+    return product_type
+
+def update(product_type):
+    sql = "UPDATE types SET name = %s WHERE id =%s"     # now I get it. 
+    values = [product_type.name,product_type.id]
+    run_sql(sql,values)
+
+def update_name(product_type,new_name):
+    sql = "UPDATE tupes SET name = %s WHERE id = %s"
+    values = [new_name,product_type.id]
+    run_sql(sql,values)
+
 
