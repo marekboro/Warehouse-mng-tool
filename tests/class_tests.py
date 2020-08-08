@@ -1,6 +1,6 @@
 import unittest
 from models.brand import Brand
-#from models.product_type import ProductType
+from models.product_type import ProductType
 #from models.product import Product
 
 class TestBrand(unittest.TestCase):
@@ -17,16 +17,35 @@ class TestBrand(unittest.TestCase):
         self.brand_2 = Brand(name_2,description_2,warranty_details_2,None)
 
     def test_name_of_brand(self):
-        expected = "Samsung"
+        expected = "Shang-Tsung"
         actual = self.brand_1.name
         self.assertEqual(expected,actual)
     
     def test_description_of_brand(self):
-        expected = "something"
-        actual = self.brand_1.name
+        #expected = "Description of Sonya Blade"
+        expected = "description of Who-Why"
+        actual = self.brand_2.description
         self.assertEqual(expected,actual)
 
-    # def test_warranty_details_of_brand(self):
-    #     expected = "Samsung"
-    #     actual = self.brand_1.name
-    #     self.assertEqual(expected,actual)
+    def test_warranty_details_of_brand(self):
+        #expected = "we cover all damage"
+        expected = "We hear everything and thats a guarantee!"
+        actual = self.brand_2.warranty_details
+        self.assertEqual(expected,actual)
+
+class TestProductType(unittest.TestCase):
+    def setUp(self):
+        name_1 = "Smartphone"
+        name_2 = "charger"
+        self.type_1 = ProductType(name_1)
+    
+    def test_product_type_name(self):
+        expected = "DumbPhone"
+        actual = self.type_1.name
+        self.assertEqual(expected,actual)
+
+        
+
+
+
+    
