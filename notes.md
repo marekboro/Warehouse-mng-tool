@@ -12,8 +12,11 @@
 - class NameConvention(unittest.TestCase):
 - def setUp(self):
 - def test_the_name_of_test(seld):
-- expected , actual, seld.assertEqual(expected,actual) 
+- expected(to fail),expected(to pass), actual, self.assertEqual(expected,actual)
 
+3. Repositories and CRUD:
+- import run_sql from the relevant dir and the class from the location
+- create CRUD functions initiating them with the sql = "", values = [ This is a list] ,results = sql(sql,values)
 
 
 

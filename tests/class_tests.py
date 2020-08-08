@@ -3,6 +3,8 @@ from models.brand import Brand
 from models.product_type import ProductType
 from models.product import Product
 
+import repositories.product_type_repository as product_type_repository
+
 # from models.product import Product
 
 
@@ -110,31 +112,63 @@ class TestProduct(unittest.TestCase):
 
     def test_product_description(self):
         expected = "Galaxy_1"                       #should Fail
-        expected = "Is a phone and a computor"     #shouls Pass
+        expected = "Is a phone and a computor"      #shouls Pass
         actual = self.product1.description
         self.assertEqual(expected, actual)
 
     
     def test_product_warranty_length(self):
         expected = 730                              #should Fail
-        expected = 365                             #shouls Pass
+        expected = 365                              #shouls Pass
         actual = self.product1.warranty_length
         self.assertEqual(expected, actual)
 
     
     def test_product_distributor_price(self):
         expected = 104                              #should Fail
-        expected = 100                             #shouls Pass
+        expected = 100                              #shouls Pass
         actual = self.product1.distributor_price
         self.assertEqual(expected, actual)
     
     def test_product_sale_price(self):
         expected = 300                              #should Fail
-        expected = 400                             #shouls Pass
+        expected = 400                              #shouls Pass
         actual = self.product1.sale_price
         self.assertEqual(expected, actual)
 
 
+class TestProductTypeRepo(unittest.TestCase):
+    def setUp(self):
+        
+        product_type_repository.delete_all()
+
+        product_name_2= "Le-Phonne"
+        self.product_type_2 = ProductType(product_name_2)
+        
+        product_name_3 = "Zz Charger"
+        self.product_type_3 = ProductType(product_name_3)
+        
+        product_name_4 = "Some accessory"
+        self.product_type_4 = ProductType(product_name_4)
+        
+        product_type_repository.save(self.product_type_2)
+        product_type_repository.save(self.product_type_3)
+        product_type_repository.save(self.product_type_4)
+
+        #self.types = product_type_repository.select_all()
+
+    def test_types_repo_content_names(self):
+        #print(self.types)
+        expected = ["Le-Phonne","Zz Charger","Some accessory"]
+        #expected = [self.product_type_2,self.product_type_3,self.product_type_4]
+        results =[]
+        for row in product_type_repository.select_all():
+            results.append(row.name)
+        actual = results
+        #actual = product_type_repository.select_all()
+        self.assertEqual(expected, actual)
+
+       
 
     
 
