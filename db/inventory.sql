@@ -19,7 +19,8 @@ CREATE TABLE types(
 
 CREATE TABLE products(
     id SERIAL PRIMARY KEY,
-    type_id SERIAL REFERENCES types(id),
+    name VARCHAR(255),
+    product_type_id SERIAL REFERENCES types(id),
     brand_id SERIAL REFERENCES brands(id),
     description TEXT,
     distributor_price FLOAT,
