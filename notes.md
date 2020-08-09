@@ -34,3 +34,5 @@ DELETE
 use default 'html5' to autopopulate your base.html
 use {%block block_name1%}    the content from another file   {%endblock%} to indicate where you will have the content form another file
 use {% extends 'filename.html%} with {%block block_name1%} put stuff here {%blockend%}
+
+CSS IS EVIL
