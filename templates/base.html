@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/nav.css') }}">
+    <link href="https://fonts.googleapis.com/css?family=Merriweather|Special+Elite" rel="stylesheet">
+    
+    <title>Inventory navigator</title>
+</head>
+<body>
+
+    <header>
+        <h1> LOGO(image) THE_APP_NAME LOGO(image)</h1>
+    </header>
+    <nav>
+        <ul>
+            <li>
+                <a href="/">Simple View</a>
+            </li>
+            <li>
+                <a href="/">Full Details</a>
+            </li>
+            <li>
+                <a href="/">EDIT</a>
+            </li>
+            <li>
+                <a href="/">Basket(not MVP)</a>
+            </li>
+        </ul>
+
+    </nav>
+    <main>
+        {%block foo%}
+
+        {%endblock%}
+    </main>
+    <footer>
+        <button>SIMULATE(nonMVP)</button>
+        <p>
+
+        </p>
+        <section>
+            <h5>V 1.0</h5>
+            <button>About</button>
+        </section>
+    </footer>
+
+
+
+
+   
+</body>
+</html>
