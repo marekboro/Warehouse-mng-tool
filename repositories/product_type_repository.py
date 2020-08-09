@@ -41,7 +41,7 @@ def update(product_type):
     run_sql(sql,values)
 
 def update_name(product_type,new_name):
-    sql = "UPDATE tupes SET name = %s WHERE id = %s"
+    sql = "UPDATE types SET name = %s WHERE id = %s"
     values = [new_name,product_type.id]
     run_sql(sql,values)
 
