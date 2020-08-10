@@ -6,7 +6,7 @@ from models.product import Product
 import repositories.product_type_repository as product_type_repository
 import repositories.brand_repository as brand_repository
 import repositories.product_repository as product_repository
-
+import repositories.stock_repository as stock_repository
 
 def clear_all_tables():
     product_repository.delete_all()
@@ -88,7 +88,13 @@ def setup_products():
     product_repository.save(product_1)   
     product_repository.save(product_2)       
     product_repository.save(product_3)       
-    product_repository.save(product_4)       
+    product_repository.save(product_4)
+
+def setup_stock():
+    all_products = product_repository.select_all()
+    for product in all_products:
+        # I want to add specific amounts of a specific product to the stock ... that way I do not have to do fancy COUNT in psql. 
+         
 #product_repository.delete(product_1.id)
 #product_repository.delete(product_2.id)
 

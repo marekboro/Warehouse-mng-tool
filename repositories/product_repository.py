@@ -97,15 +97,15 @@ def update(product):
 
 
 
-# def count(product):
-#     #count = 0
-#     sql = "SELECT COUNT(*) FROM products WHERE (name = %s AND product_type_id = %s AND brand_id = %s)"
-#     #sql = "SELECT * FROM products WHERE (name = %s AND product_type_id = %s AND brand_id = %s)"
-#     values = [product.name, product.product_type.id,product.brand.id]
-#     count = run_sql(sql,values)[0] 
-#     #for result in results:
-#      #   count+=1
-#     return count
+def count(product):
+    #count = 0
+    sql = "SELECT COUNT(*) FROM products WHERE (name = %s AND product_type_id = %s AND brand_id = %s)"
+    #sql = "SELECT * FROM products WHERE (name = %s AND product_type_id = %s AND brand_id = %s)"
+    values = [product.name, product.product_type.id,product.brand.id]
+    count = run_sql(sql,values)[0] 
+    #for result in results:
+     #   count+=1
+    return count
 
 # def count_total():
 #     sql = "SELECT COUNT (*) from products"
