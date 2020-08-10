@@ -2,5 +2,31 @@
 {%block foo%}
 <section id = "page1">
 <h1> THE simple view table goes here BLOCK</h1>
+
+
+<table id = "simpletable">
+    <tr>
+        <th>Name</th>
+        <th>Brand</th>
+        <th>Stock</th>
+        <th>Price(distributor)</th>
+        <th>Price(sale)</th>
+        <th>Markup</th>
+        <th>Low</th>
+    </tr>
+    <tr>
+        <th>{{products[0].name}}</th>
+        <th>{{products[0].brand.name}}</th>
+        <th>to be added</th>
+        <th>{{products[0].distributor_price}}</th>
+        <th>{{products[0].sale_price}}</th>
+        <th>{{products[0].sale_price - products[0].distributor_price }}</th>
+        <th>to be added</th>
+    </tr>
+
+
+
+</table>
+
 </section>
 {%endblock%}

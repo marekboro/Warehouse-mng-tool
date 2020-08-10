@@ -91,6 +91,7 @@ setup_product_types()
 setup_brands()
 setup_products()
 
+#print(product_type_repository.select(0).name)
 
 # # # # # UPDATE product works
 # product3= Product("buzzbuzz",product_type_1,brand2,"makes Buzzing sounds",100,245,365,product_2.id)

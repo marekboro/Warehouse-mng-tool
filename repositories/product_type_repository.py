@@ -29,10 +29,11 @@ def delete(id):
     run_sql(sql,values)
 
 def select(id):
-    sql = "SELECT FROM types WHERE id = %s"
+    sql = "SELECT * FROM types WHERE id = %s"
     values = [id]
     result = run_sql(sql,values)[0]
-    product_type = ProductType(result['name'],result['id'])
+    if result is not None:
+        product_type = ProductType(result['name'],result['id'])
     return product_type
 
 def update(product_type):

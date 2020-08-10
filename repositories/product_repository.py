@@ -28,17 +28,23 @@ def select_all():
     results = run_sql(sql)
 
     for row in results:
-        product_type = product_type_repository.select(row["product_type_id"])
-        brand = brand_repository.select(row["brand_id"])
+        
+        product_type = product_type_repository.select(row['product_type_id']) # THIS IS  THE ISSUE
+        #product_type = ProductType("111",4)
+        brand = brand_repository.select(row['brand_id'])   # AND THIS IS THE ISSUE
+        #brand = Brand("bra1","bra1desc","w-d-bra1",3)
+        
+        # location = location_repository.select(row['location_id'])
+        
         a_product = Product(
-            row["name"],
+            row['name'],
             product_type,
             brand,
-            row["description"],
-            row["distributor_price"],
-            row["sale_price"],
-            row["warranty_length"],
-            row["id"]
+            row['description'],
+            row['distributor_price'],
+            row['sale_price'],
+            row['warranty_length'],
+            row['id']
         )
         all_products.append(a_product)
 
@@ -58,18 +64,18 @@ def select(id):
     values = [id]
     result = run_sql(sql,values)[0]
     
-    product_type = product_type_repository.select(result["product_type_id"])
-    brand = brand_repository.select(result["brand_id"])
+    product_type = product_type_repository.select(result['product_type_id'])
+    brand = brand_repository.select(result['brand_id'])
     
     a_product = Product(
-            result["name"],
+            result['name'],
             product_type,
             brand,
-            result["description"],
-            result["distributor_price"],
-            result["sale_price"],
-            result["warranty_length"],
-            result["id"]
+            result['description'],
+            result['distributor_price'],
+            result['sale_price'],
+            result['warranty_length'],
+            result['id']
         )
     return a_product
 

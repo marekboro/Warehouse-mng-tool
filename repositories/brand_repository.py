@@ -24,10 +24,11 @@ def delete_all():
 
 
 def select(id):
-    sql = "SELECT FROM brands WHERE id = %s"
+    sql = "SELECT * FROM brands WHERE id = %s"
     values = [id]
     result = run_sql(sql,values)[0]
-    the_brand = Brand(result['name'],result['description'],result['warranty_details'],result['id'])
+    if result is not None:
+        the_brand = Brand(result['name'],result['description'],result['warranty_details'],result['id'])
     return the_brand
 
 def delete(id):

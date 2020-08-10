@@ -30,9 +30,24 @@ DELETE
 #DELETE one using ID
 #UPDATE one using ID
 
+
+FOR SELECT(ID)!!!: 
+MASE SURE to add * in the SELECT syntax!!! 
+
+
 4. CONTROLLERS AND HTML
 use default 'html5' to autopopulate your base.html
 use {%block block_name1%}    the content from another file   {%endblock%} to indicate where you will have the content form another file
 use {% extends 'filename.html%} with {%block block_name1%} put stuff here {%blockend%}
 
 CSS IS EVIL
+
+you cannot place a block in another block
+also cannot have 2 blocks next to each other 
+{%block foo%} {%endblock%}
+{%block foo%} {%endblock%}  will give error for calling same block more than once
+
+{%block foo1%} {%endblock%}
+{%block foo2%} {%endblock%}
+
+W
