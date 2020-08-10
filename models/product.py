@@ -1,3 +1,5 @@
+#import repositories.product_repository as product_repository
+
 class Product():
     def __init__(self, name, product_type, brand, description, distributor_price, sale_price, warranty_length, id = None):
         self.name = name
@@ -11,3 +13,5 @@ class Product():
         
     def get_markup(self):
         return self.sale_price - self.distributor_price
+
+    

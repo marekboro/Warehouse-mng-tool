@@ -26,8 +26,10 @@ def products_main():
 @products_blueprint.route("/fullview")
 def products_extended_view():
     products = product_repository.select_all()
-    count_total = product_repository.count_total()  
-    return render_template("fullview/index.html", products = products, count_total = count_total)
+    # count_total = product_repository.count_total()  
+    #count = product_repository.count()
+    return render_template("fullview/index.html", products = products)#, count_total = count_total)
+
 
 @products_blueprint.route("/edit")
 def products_edit():
