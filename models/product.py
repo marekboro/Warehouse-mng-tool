@@ -9,3 +9,5 @@ class Product():
         self.warranty_length = warranty_length
         self.id = id
         
+    def get_markup(self):
+        return self.sale_price - self.distributor_price

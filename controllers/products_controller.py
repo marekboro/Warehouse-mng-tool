@@ -18,14 +18,16 @@ products_blueprint = Blueprint("products", __name__)
 
 @products_blueprint.route("/")
 def products_main():
-    products = product_repository.select_all()  
+    products = product_repository.select_all()
+    
     return render_template("index.html", products = products)
 
 
 @products_blueprint.route("/fullview")
 def products_extended_view():
-    products = product_repository.select_all()  
-    return render_template("fullview/index.html", products = products)
+    products = product_repository.select_all()
+    count_total = product_repository.count_total()  
+    return render_template("fullview/index.html", products = products, count_total = count_total)
 
 @products_blueprint.route("/edit")
 def products_edit():

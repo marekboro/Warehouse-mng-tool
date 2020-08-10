@@ -78,9 +78,17 @@ def setup_products():
     product_2_warranty_length = 140
     global product_2 #= Product(product_2_name,product_type_1,brand1,product_2_description, product_2_distributor_price,product_2_sale_price,product_2_warranty_length)
     product_2 = Product(product_2_name,product_type_1,brand1,product_2_description, product_2_distributor_price,product_2_sale_price,product_2_warranty_length)
+     
+    global product_3 #= Product(product_2_name,product_type_1,brand1,product_2_description, product_2_distributor_price,product_2_sale_price,product_2_warranty_length)
+    product_3 = Product(product_2_name,product_type_3,brand2,product_2_description, 130, 500,300)
+    
+    global product_4 #= Product(product_2_name,product_type_1,brand1,product_2_description, product_2_distributor_price,product_2_sale_price,product_2_warranty_length)
+    product_4 = Product(product_2_name,product_type_4,brand2,product_2_description, 140,360,150)
+    
     product_repository.save(product_1)   
-    product_repository.save(product_2)    
-
+    product_repository.save(product_2)       
+    product_repository.save(product_3)       
+    product_repository.save(product_4)       
 #product_repository.delete(product_1.id)
 #product_repository.delete(product_2.id)
 

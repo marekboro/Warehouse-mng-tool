@@ -93,4 +93,29 @@ def update(product):
     ]
     run_sql(sql,values)
 
+
+
+
+
+# def count(product):
+#     count = 0
+#     sql = "SELECT * FROM products WHERE (name = %s AND product_type_id = %s AND brand_id = %s)"
+#     values = [product.name, product.product_type.id,product.brand.id]
+#     results = run_sql(sql,values)[0] # ?
+#     for result in results:
+#         count+=1
+#     return count
+
+def count_total():
+    sql = "SELECT COUNT (*) from products"
+    result = run_sql(sql)[0][0]
+    return result
+
+
+
+def markup(product):
+    pass
+
+
+
 # UPDATE one using ID
