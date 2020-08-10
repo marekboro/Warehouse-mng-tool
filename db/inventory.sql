@@ -31,8 +31,8 @@ CREATE TABLE products(
 CREATE TABLE stock (
     id SERIAL PRIMARY KEY,
     product_id SERIAL REFERENCES products(id) ON DELETE CASCADE,
-    product_type_id SERIAL REFERENCES types(id),
-    brand_id SERIAL REFERENCES brands(id),
+    -- product_type_id SERIAL REFERENCES types(id),
+    -- brand_id SERIAL REFERENCES brands(id),
     count INT
 );
 

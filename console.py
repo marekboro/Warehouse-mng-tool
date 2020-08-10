@@ -105,8 +105,10 @@ def setup_products():
 #print(product_repository.select(product_1.id).name)
 
 def create_stock_from_products():
-    for product in product_repository.select_all():
-        item_to_stock = Stock(product)
+    all_products = product_repository.select_all()
+    for product in all_products:
+        item_to_stock = Stock(product,2)
+        #item_to_stock = Stock(product)
         stock_repository.save(item_to_stock)
 
 

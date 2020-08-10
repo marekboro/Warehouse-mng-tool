@@ -18,20 +18,38 @@ import repositories.product_repository as product_repository
 #     stock.id= result['id']
 #     stock.count +=1
 
+# def save(stock):
+    
+#     sql = "INSERT INTO stock (product_id, count) VALUES (%s, %s) RETURNING id"
+#     #sql = "INSERT INTO stock (product_id, product_type_id, brand_id, count) VALUES (%s,%s,%s, %s) RETURNING id"
+#     #values = [stock.product.id, stock.product.product_type.id, stock.product.brand.id, 0]
+#     values = [stock.product.id,0]
+#     result = run_sql(sql,values)[0]
+#     stock.id= result['id']
+#     return stock
+
 def save(stock):
     
-    sql = "INSERT INTO stock (product_id, product_type_id, brand_id, count) VALUES (%s,%s,%s, %s) RETURNING id"
-    values = [stock.product.id, stock.product.product_type.id, stock.product.brand.id, 0]
-    result = run_sql(sql,values)[0]
-    stock.id= result['id']
-    return stock
+    sql = "INSERT INTO stock (product_id, count) VALUES (%s, %s) RETURNING id"
+    #sql = "INSERT INTO stock (product_id, product_type_id, brand_id, count) VALUES (%s,%s,%s, %s) RETURNING id"
+    #values = [stock.product.id, stock.product.product_type.id, stock.product.brand.id, 0]
+    values = [stock.product.id,0]
+    result = run_sql(sql,values)
+    id= result[0]['id']
+    stock.id = id
+    #return stock
+
 
 def select_all():
     all_stock = []
     sql = "SELECT * FROM stock"
     result = run_sql(sql)
     for row in result:
-        a_product_in_stock = Stock(row['product'],row['count'])
+
+        #product = product_repository.select(row['product_id']) ## # 
+
+        a_product_in_stock = Stock(row['product_id'],row['count'])
+        #a_product_in_stock = Stock(product,row['count'])
         all_stock.append(a_product_in_stock)
     
     return all_stock
