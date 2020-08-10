@@ -3,15 +3,18 @@ import pdb
 from models.product_type import ProductType
 from models.brand import Brand
 from models.product import Product
+from models.stock import Stock
 import repositories.product_type_repository as product_type_repository
 import repositories.brand_repository as brand_repository
 import repositories.product_repository as product_repository
 import repositories.stock_repository as stock_repository
 
 def clear_all_tables():
+
     product_repository.delete_all()
     product_type_repository.delete_all()
     brand_repository.delete_all()
+    stock_repository.delete_all()
 
 def setup_product_types():
     product_type_name_1 = "Le-Phonette"
@@ -90,9 +93,10 @@ def setup_products():
     product_repository.save(product_3)       
     product_repository.save(product_4)
 
-def setup_stock():
-    all_products = product_repository.select_all()
-    for product in all_products:
+# def setup_stock():
+#     all_products = product_repository.select_all()
+#     for product in all_products:
+#         pass
         # I want to add specific amounts of a specific product to the stock ... that way I do not have to do fancy COUNT in psql. 
          
 #product_repository.delete(product_1.id)
@@ -100,10 +104,25 @@ def setup_stock():
 
 #print(product_repository.select(product_1.id).name)
 
+def create_stock_from_products():
+    for product in product_repository.select_all():
+        item_to_stock = Stock(product)
+        stock_repository.save(item_to_stock)
+
+
 clear_all_tables()
 setup_product_types()
 setup_brands()
 setup_products()
+create_stock_from_products()
+
+
+    
+
+
+
+#stock1 = Stock(product_1)
+#stock_repository.save(stock1)
 
 #print(product_type_repository.select(0).name)
 

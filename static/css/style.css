@@ -1,0 +1,55 @@
+body{
+    margin: 0px;
+    padding: 0px;
+}
+
+h1 {
+    text-align: center;
+    margin: 0px;
+    padding: 0px;
+}
+
+
+#page1 {
+    background-color: chartreuse;
+    margin: 0px;
+    padding: 0px;
+}
+
+/* footer {
+display: flex;
+justify-content: space-between;
+text-align: center;
+} */
+
+footer {
+    /* display: inline-grid; */
+    display: grid;
+    grid-template-columns: 20fr 60fr 20fr;
+    background-color: cornflowerblue;
+    text-align: center;
+
+}
+
+
+footer > section {
+display: flex;
+justify-content: space-between;
+min-width: 10%;
+background-color: chocolate;
+text-align:  center;
+}
+
+#simpletable {
+    display: flex;
+    justify-content: space-evenly;
+    
+    /* display: grid; */
+    /* grid-template-columns: 2fr 1fr 1fr 1fr 1fr 1fr 1fr ; */
+    background-color: crimson;
+    
+}
+/* #simpletable >tr {
+    flex-grow: 1;
+    
+} */

@@ -1,0 +1,49 @@
+{%extends 'base.html'%} 
+
+{%block foo%}
+<section id = "page1">
+    <h1> Full VIEW</h1>
+    
+    
+    <table id = "simpletable">
+        <tr>
+            <th>Name</th>
+            <th>product type</th>
+            <th>Brand name</th>
+            <th>Brand description</th>
+            <th>warranty length</th>
+            <th>Brand warranty</th>
+            <th>Price(dist)</th>
+            <th>Price(sale)</th>
+            <th>Markup</th>
+            <th>Low</th>
+            <th>Stock</th>
+        </tr>
+        
+        
+        {%for a_product in products%}
+        <tr>
+            <th>{{a_product.name}}</th>
+            <th>{{a_product.product_type.name}}</th>
+            <th>{{a_product.brand.name}}</th>
+            <th>{{a_product.brand.description}}</th>
+            <th>{{a_product.warranty_length}}</th>
+            <th>{{a_product.brand.warranty_details}}</th>
+            <th>{{a_product.distributor_price}}</th>
+            <th>{{a_product.sale_price}}</th>
+            <th>{{a_product.get_markup()}}</th>
+            <th>to b</th>
+            <th>to b</th>
+            <!-- <th>{{count_total}}</th> -->
+        </tr>
+        {%endfor%}
+        
+
+    </table>
+    
+    <!-- {%for product in products%}
+        Dupa
+    {%endfor%} -->
+    
+    </section>
+{%endblock%}
