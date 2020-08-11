@@ -22,8 +22,11 @@ products_blueprint = Blueprint("products", __name__)
 
 @products_blueprint.route("/")
 def products_main():
-    products = product_repository.select_all()
-    return render_template("index.html", products = products)
+    stocks = stock_repository.select_all()
+    return render_template("index.html", stocks = stocks)
+
+    # products = product_repository.select_all()
+    # return render_template("index.html", products = products)
 
 
 @products_blueprint.route("/fullview1")
@@ -36,6 +39,7 @@ def products_extended_view():
 
 @products_blueprint.route("/edit")
 def products_edit():
+    
     products = product_repository.select_all()  
     return render_template("editing/index.html", products = products)
 
@@ -50,3 +54,9 @@ def products_basket():
 def products_editing_view():
     products = product_repository.select_all()  
     return render_template("editing/prodedit.html", products = products)
+
+
+@products_blueprint.route("/edit/removeProduct<id>")
+def delete_product(id):
+    product_repository.delete(id)
+    return redirect("/edit/prod-edit")

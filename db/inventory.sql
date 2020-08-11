@@ -34,6 +34,7 @@ CREATE TABLE stock (
     -- product_type_id SERIAL REFERENCES types(id),
     -- brand_id SERIAL REFERENCES brands(id),
     count INT
+   
 );
 
 -- NOTE TO SELF!  ALWAYS USE   createdb database_name  in CONSOLE!  - to create the database before working on it

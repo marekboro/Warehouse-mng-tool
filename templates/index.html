@@ -1,33 +1,38 @@
-{%extends 'base.html'%} 
+{%extends 'base.html'%}
 {%block foo%}
-<section id = "page1">
-<h1> THE simple view table goes here BLOCK</h1>
+<section id="page1">
+    <h1> THE simple view table goes here BLOCK</h1>
 
 
-<table id = "simpletable">
-    <tr>
-        <th>Name</th>
-        <th>Brand</th>
-        
-        <th>Stock</th>
-        <th>Price(distributor)</th>
-        <th>Price(sale)</th>
-        <th>Markup</th>
-        <th>Low</th>
-    </tr>
-    <tr>
-        <th>{{products[0].name}}</th>
-        <th>{{products[0].brand.name}}</th>
-        <th>to be added</th>
-        <th>{{products[0].distributor_price}}</th>
-        <th>{{products[0].sale_price}}</th>
-        <th>{{products[0].sale_price - products[0].distributor_price }}</th>
-        <th>to be added</th>
-    </tr>
+    <table id="simpletable">
+        <tr>
+            <th>Name</th>
+            <th>Brand</th>
+            <th>Price(distributor)</th>
+            <th>Price(sale)</th>
+            <th>Markup</th>
+            <th>Stock</th>
+            <th>Basket</th>
+
+        </tr>
+        {%for stock_item in stocks%}
+        <tr>
 
 
+            <th>{{stock_item.product.name}}</th>
+            <th>{{stock_item.product.brand.name}}</th>
+            
+            <th>{{stock_item.product.distributor_price}}</th>
+            <th>{{stock_item.product.sale_price}}</th>
+            <th>{{stock_item.product.get_markup()}}</th>
+            <th>{{stock_item.count}}</th>
+            <th>to be added</th>
 
-</table>
+        </tr>
+        {%endfor%}
+
+
+    </table>
 
 </section>
 {%endblock%}

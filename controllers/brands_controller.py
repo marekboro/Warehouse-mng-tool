@@ -14,7 +14,13 @@ def brands_editing_view():
     return render_template("editing/brandedit.html",brands = brands)
 
 
+
 @brands_blueprint.route("/edit/removeBrand<id>")
 def delete_brand(id):
     brand_repository.delete(id)
     return redirect("/edit/brand-edit")
+
+@brands_blueprint.route("/edit/editBrand<id>")
+def edit_brand(id):
+    brand = brand_repository.select(id)
+    return render_template("/edit/editingBrand", brand=brand)

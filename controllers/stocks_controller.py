@@ -15,7 +15,7 @@ stocks_blueprint = Blueprint("stock", __name__)
 def stocks_main():
     #products = product_repository.select_all()
     stocks = stock_repository.select_all()
-    print(stocks[0].product)
+    #print(stocks[0].product)
     
     #products = product_repository.select_all()
     return render_template("stock/index.html", stocks = stocks)#, products = products)
