@@ -8,6 +8,7 @@
     <table id = "simpletable">
         <tr>
             <th>Name</th>
+            <th>Description/th>
             <th>Type</th>
             <th>Brand name</th>
             <th>Brand description</th>
@@ -25,6 +26,7 @@
         {%for a_product in products%}
         <tr>
             <th>{{a_product.name}}</th>
+            <th>{{a_product.description}}</th>
             <th>{{a_product.product_type.name}}</th>
             <th>{{a_product.brand.name}}</th>
             <th>{{a_product.brand.description}}</th>

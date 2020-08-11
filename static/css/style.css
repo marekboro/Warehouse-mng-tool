@@ -49,11 +49,28 @@ text-align:  center;
     background-color: crimson;
     
 }
+
+#fulltable {
+    display: flex;
+    justify-content: space-around;
+    
+    /* display: grid; */
+    /* grid-template-columns: 2fr 1fr 1fr 1fr 1fr 1fr 1fr ; */
+    background-color: rgb(98, 138, 72);
+    
+}
+#columnNames {
+    background-color: darkgoldenrod;
+    
+}
+
 /* #simpletable >tr {
     flex-grow: 1;
     
 } */
-
+#descriptionCell {
+    font-size: 50%;
+}
 
 #editoptions >ul {
 background-color: cyan;
@@ -89,4 +106,7 @@ padding-left: 2%;
     font-size: 3.25vw;
     /* padding-right:  10%; */
     /* padding-inline: ; */
+}
+
+
 }

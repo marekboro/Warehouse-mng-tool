@@ -5,9 +5,10 @@
     <h1> Full VIEW</h1>
     
     
-    <table id = "simpletable">
-        <tr>
+    <table id = "fulltable">
+        <tr id=columnNames>
             <th>Name</th>
+            <th>Description</th>
             <th>Type</th>
             <th>Brand</th>
             <th>Brand desc.</th>
@@ -16,8 +17,8 @@
             <th>Price(dist)</th>
             <th>Price(sale)</th>
             <th>Markup</th>
-            <th>Low</th>
             <th>Stock</th>
+            <th>Basket</th>
         </tr>
         
         
@@ -25,6 +26,7 @@
         
         <tr>
             <th>{{a_stock_item.product.name}}</th>
+            <th id = "descriptionCell">{{a_stock_item.product.description}}</th>
             <th>{{a_stock_item.product.product_type.name}}</th>
             <th>{{a_stock_item.product.brand.name}}</th>
             <th>{{a_stock_item.product.brand.description}}</th>
@@ -35,7 +37,7 @@
             <th>{{a_stock_item.product.get_markup()}}</th>
             <th>{{a_stock_item.count}}</th>
         
-            <th>to b</th>
+            <th>bskt</th>
             <th></th>
             <!-- <th>{{count_total}}</th> -->
         </tr>
