@@ -25,7 +25,8 @@
             {%for type in types%}
             <tr>
                 <th>{{type.name}}</th>
-                <th><button>DELETE</button></th>
+                <!-- <th><button formtarget = "/edit/removeType{{type.id}}" type="submit"  >DELETE</button></th> -->
+                <th> <a href=" /edit/removeType{{type.id}}"> DELETE</a> </th>
                 
             </tr>
             {%endfor%}

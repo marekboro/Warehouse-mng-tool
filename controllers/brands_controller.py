@@ -12,3 +12,9 @@ def brands_editing_view():
     #products = product_repository.select_all()  
     brands = brand_repository.select_all()
     return render_template("editing/brandedit.html",brands = brands)
+
+
+@brands_blueprint.route("/edit/removeBrand<id>")
+def delete_brand(id):
+    brand_repository.delete(id)
+    return redirect("/edit/brand-edit")
