@@ -1,0 +1,50 @@
+{%extends 'editing/index.html'%}
+
+{%block foo%}
+<section id="editoptions">
+
+    <head>
+        <ul>
+            <li>
+                <a href="/edit/prod-edit"> INProducts</a>
+            </li>
+            <li>
+                <a href="/edit/brand-edit">Brands</a>
+            </li>
+            <li>
+                <a href="/edit/type-edit">Types</a>
+            </li>
+        </ul>
+    </head>
+
+
+
+    <body>
+        <section id="BrandForm">
+            <form id="brandEditor" action="/edit/modifyBrand{{brand.id}}" method="post">
+                <ul>
+                    
+                    <li> Name <input type="text" name="newBrandName" value="{{brand.name}}"> </li>  
+                    <li> Description <input type="text" name="newBrandDescription" value="{{brand.description}}"> </li>  
+                    <li> Warranty <input type="text" name="newBrandWarranty" value="{{brand.warranty_details}}"> </li>  
+                  
+                    <li><input type="submit" value="Confirm"></li>
+
+
+
+
+                </ul>
+
+
+            </form>
+            
+
+             
+
+        </section>
+
+
+
+    </body>
+</section>
+{%endblock%}

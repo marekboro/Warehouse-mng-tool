@@ -20,7 +20,7 @@
         <table id = "tableEditProducts">
             <tr id = tableEditProductsColumns>
                 
-                <th>Type</th>
+                <th>Brand</th>
                 <th>Description</th>
                 <th>Warranty</th>
                 <th></th>
@@ -30,11 +30,11 @@
             </tr>
             {%for brand in brands%}
             <tr>
-                <a href="">
-                    <th>{{brand.name}}</th>
-                    <th>{{brand.description}}</th>
-                    <th>{{brand.warranty_details}}</th>
-                </a>
+                
+                    <th><a href="/edit/editBrand{{brand.id}}">{{brand.name}}</a> </th>
+                    <th><a href="/edit/editBrand{{brand.id}}">{{brand.description}}</a></th>
+                    <th><a href="/edit/editBrand{{brand.id}}">{{brand.warranty_details}}</a></th>
+                
                 <th> <a href=" /edit/removeBrand{{brand.id}}"> DELETE</a> </th>
                 
                 

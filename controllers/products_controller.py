@@ -115,15 +115,15 @@ def add_a_product():
 
 @products_blueprint.route("/edit/CreateProduct", methods = ["POST"])
 def create_a_product():
-    
     product_type = product_type_repository.select(request.form["type_choice"])
     product_brand = brand_repository.select(request.form["brand_choice"])
     new_product = Product(request.form["newProductName"],product_type,product_brand,request.form["newProductDescription"],request.form["newProductDistPrice"],request.form["newProductSalePrice"],request.form["newProductWarrantyLength"])
     
+    #There should be a check here to make sure that will not allow you to use incorrect data types in the form, specifically --
+    # if values that should be ints/foats are strings - return to start page with these values in the relevant posts, if values are good then save product and stock
     
     product_repository.save(new_product)
     new_stock_item = Stock(new_product)
-    
     stock_repository.save(new_stock_item)
 
     return redirect ("/fullview")
