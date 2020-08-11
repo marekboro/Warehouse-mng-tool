@@ -23,7 +23,7 @@ def delete_brand(id):
 
 
 @brands_blueprint.route("/edit/editBrand<id>")  # display brand modification form
-def editor_for_brand(id):
+def editor_for_existing_brand(id):
     brand = brand_repository.select(id)
     return render_template("/editing/editBrand.html", brand=brand)
 
@@ -37,4 +37,16 @@ def apply_brand_edits(id):
     modified_brand = Brand(request.form['newBrandName'],request.form['newBrandDescription'],request.form['newBrandWarranty'],old_id)
     brand_repository.update(modified_brand)
 
+    return redirect("/edit/brand-edit")
+
+
+@brands_blueprint.route("/edit/addABrand")  # brand creation form
+def editor_for_new_brand():
+    return render_template("/editing/add_brand.html")
+
+
+@brands_blueprint.route("/edit/createNewBrand", methods = ['post'])  # create a brand from the form details
+def adding_new_brand():
+    new_brand = Brand(request.form['newBrandName'],request.form['newBrandDescription'],request.form['newBrandWarranty'])
+    brand_repository.save(new_brand)
     return redirect("/edit/brand-edit")
