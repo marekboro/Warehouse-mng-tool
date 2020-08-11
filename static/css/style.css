@@ -51,13 +51,13 @@ text-align:  center;
 }
 
 .lowStock{
-    background-color: rgb(196, 240, 0);
-    color: green;
+    background-color: rgb(207, 176, 0);
+    color: rgb(13, 70, 13);
 }
 
 .noStock{
     background-color: ghostwhite;
-    color: gold;
+    color: rgb(221, 3, 3);
 }
 
 #fulltable {

@@ -10,7 +10,8 @@
             <th>Brand</th>
             <th>Price(distributor)</th>
             <th>Price(sale)</th>
-            <th>Markup</th>
+            <th>Markupx1</th>
+            <th>Markup total</th>
             <th>Stock</th>
             <th>Basket</th>
             <th>1</th>
@@ -27,6 +28,7 @@
             <th>{{stock_item.product.distributor_price}}</th>
             <th>{{stock_item.product.sale_price}}</th>
             <th>{{stock_item.product.get_markup()}}</th>
+            <th>{{stock_item.get_markup_based_on_stock_count()}}</th>
             
             {% if 0< stock_item.count < 10 %}
             <th class = "lowStock">{{stock_item.count}}</th>

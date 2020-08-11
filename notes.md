@@ -51,3 +51,5 @@ also cannot have 2 blocks next to each other
 {%block foo2%} {%endblock%}
 
 
+
+
