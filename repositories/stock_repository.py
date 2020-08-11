@@ -30,9 +30,10 @@ import repositories.product_repository as product_repository
 
 def save(stock):
     
-    sql = "INSERT INTO stock (product_id, count) VALUES (%s, %s) RETURNING id"
+    sql = "INSERT INTO stock (product_id, count) VALUES (%s, %s) RETURNING *"
     #sql = "INSERT INTO stock (product_id, product_type_id, brand_id, count) VALUES (%s,%s,%s, %s) RETURNING id"
     #values = [stock.product.id, stock.product.product_type.id, stock.product.brand.id, 0]
+    
     values = [stock.product.id,0]
     result = run_sql(sql,values)
     id= result[0]['id']
