@@ -19,9 +19,10 @@
 
     <body>
         <section id="productForm">
-            <form id="productEditor" action="/edit/editAProduct{{product.id}}" method="post">
+            <form id="productEditor" action="/edit/editTheProduct{{product.id}}" method="post">
                 <ul>
-                    <li> Name <input type="text" name="newProductName" placeholder="{{product.name}}"> </li>
+                    <!-- <li> Name <input type="text" name="newProductName" placeholder="{{product.name}}"> </li>   -->
+                    <li> Name <input type="text" name="newProductName" value="{{product.name}}"> </li>  
                     <li>Type <select name='type_choice' id="typesofproducts">
                             {%for type in types%}
                             <option value="{{type.id}}">{{type.name}}</option>
@@ -36,16 +37,17 @@
                         <option value="{{brand.id}}">{{brand.name}}</option>
                         {%endfor%}
                     </select>
-
+                    
 
                     </li>
                     <li>Distributor Price <input type="text" name="newProductDistPrice"
-                            placeholder="{{product.distributor_price}}"></li>
-                    <li>Sale Price <input type="text" name="newProductName" placeholder="{{product.sale_price}}"></li>
-                    <li>Warranty Length <input type="text" name="newProductName"
-                            placeholder="{{product.warranty_length}}"></li>
+                        value="{{product.distributor_price}}"></li>
+                    <li>Sale Price <input type="text" name="newProductSalePrice" value="{{product.sale_price}}"></li>
+                    <li>Warranty Length <input type="text" name="newProductWarrantyLength"
+                        value="{{product.warranty_length}}"></li>
                     <li>Description <input type="text" name="newProductDescription"
-                            placeholder="{{product.description}}" > </li>
+                        value="{{product.description}}" > </li>
+                    <li><input type="submit" value="Confirm"></li>
 
 
 

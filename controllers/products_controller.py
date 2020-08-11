@@ -63,7 +63,7 @@ def delete_product(id):
 
 
 @products_blueprint.route("/edit/editAProduct<id>")
-def edit_a_product(id):
+def view_product_to_edit(id):
     product = product_repository.select(id)
     brands = brand_repository.select_all()
     types = product_type_repository.select_all()
@@ -72,3 +72,35 @@ def edit_a_product(id):
 @products_blueprint.route("/edit/addAProduct")
 def add_a_product():
     return render_template("editing/editProduct.html")
+
+@products_blueprint.route("/edit/editTheProduct<id>", methods = ["POST"])
+def edit_a_product(id):
+    old_product = product_repository.select(id)
+    print("HELLO ")
+    #print(f"  is {request.form["type_choice"]}")
+    
+    
+    the_id = old_product.id
+    print(f" ID is: {the_id }")
+    updated_type = product_type_repository.select(request.form["type_choice"])
+    print(f" upd type is {updated_type.name}")
+    updated_brand = brand_repository.select(request.form["brand_choice"])
+    print(f" upd brand is {updated_brand.name}")
+    updated_product = Product(request.form["newProductName"],updated_type,updated_brand,request.form["newProductDescription"],request.form["newProductDistPrice"],request.form["newProductSalePrice"],request.form["newProductWarrantyLength"],the_id)
+    print(f" name is: {updated_product.name}")
+    print(f" brand name is: {updated_product.brand.name}")
+    print(f" type is: {updated_product.product_type.name}")
+    print(f" desc is: {updated_product.description}")
+    ##print(f" name is: {updated_product.name}")
+    #print(f" name is: {updated_product.name}")
+    #print(f" name is: {updated_product.name}")
+    #print(f" name is: {updated_product.name}")
+
+
+    product_repository.update(updated_product)
+    
+    #return redirect ("/edit/prod-edit")
+    return redirect ("/fullview")
+
+   
+    #return render_template("editing/editProduct.html")
