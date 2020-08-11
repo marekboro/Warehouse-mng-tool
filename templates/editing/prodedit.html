@@ -1,8 +1,9 @@
-{%extends 'editing/index.html'%} 
+{%extends 'editing/index.html'%}
 
 {%block foo%}
-<section id ="editoptions">
-    <head >
+<section id="editoptions">
+
+    <head>
         <ul>
             <li>
                 <a href="/edit/prod-edit"> INProducts</a>
@@ -15,29 +16,30 @@
             </li>
         </ul>
     </head>
-    <body>
-        <div id = newProduct> NEW </div>
-        <table id = "tableEditProducts">
-            <tr id = tableEditProductsColumns>
-                <th>Name</th>
-                <th>Brand name</th>
-                <th>Type of product</th>
-                <th></th>
-            </tr>
-            {%for product in products%}
-            <tr>
-                <th>{{product.name}}</th>
-                <th>{{product.brand.name}}</th>
-                <th>{{product.product_type.name}}</th>
-                <th> <a href=" /edit/removeProduct{{product.id}}"> DELETE</a> </th>
-            </tr>
-            {%endfor%}
-        </table>
 
-        
+    <body>
+        <section id=editingProducts>
+            <div id=newProduct> <a href="/edit/addAProduct"> N E W</a></div>
+
+            <table id="tableEditProducts">
+                <tr id=tableEditProductsColumns>
+                    <th>Name</th>
+                    <th>Brand name</th>
+                    <th>Type of product</th>
+                    <th></th>
+                </tr>
+                {%for product in products%}
+                <tr>
+                    <a href="/edit/editAProduct{{product.id}}"></a>
+                    <th> <a href="/edit/editAProduct{{product.id}}">{{product.name}}</a></th>
+                    <th> <a href="/edit/editAProduct{{product.id}}">{{product.brand.name}}</a></th>
+                    <th> <a href="/edit/editAProduct{{product.id}}">{{product.product_type.name}}</a></th>
+                    <th> <a href=" /edit/removeProduct{{product.id}}"> DELETE</a> </th>
+                </tr>
+                {%endfor%}
+            </table>
+        </section>
+
     </body>
 </section>
 {%endblock%}
-
-
-

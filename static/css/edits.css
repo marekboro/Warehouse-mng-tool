@@ -25,3 +25,20 @@
     /* grid-template-columns: 2fr 1fr 1fr 1fr 1fr 1fr 1fr ; */
     background-color: rgb(243, 130, 153);
 }
+
+#editingProducts{
+    display: flex;
+    justify-content: flex-start; 
+}
+
+#newProduct{
+   display: flex;
+   justify-content: baseline;
+   
+   padding-right: 10%;
+   background-color: darkcyan;
+
+    
+    
+    
+}

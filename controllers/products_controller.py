@@ -60,3 +60,15 @@ def products_editing_view():
 def delete_product(id):
     product_repository.delete(id)
     return redirect("/edit/prod-edit")
+
+
+@products_blueprint.route("/edit/editAProduct<id>")
+def edit_a_product(id):
+    product = product_repository.select(id)
+    brands = brand_repository.select_all()
+    types = product_type_repository.select_all()
+    return render_template("editing/editProduct.html", product = product, brands = brands, types = types)
+
+@products_blueprint.route("/edit/addAProduct")
+def add_a_product():
+    return render_template("editing/editProduct.html")

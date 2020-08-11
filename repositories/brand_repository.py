@@ -43,4 +43,6 @@ def update(brand):
     run_sql(sql,values)
 
 
+
+
 #UPDATE one using ID

@@ -1,8 +1,9 @@
-{%extends 'editing/index.html'%} 
+{%extends 'editing/index.html'%}
 
 {%block foo%}
-<section id ="editoptions">
-    <head >
+<section id="editoptions">
+
+    <head>
         <ul>
             <li>
                 <a href="/edit/prod-edit"> INProducts</a>
@@ -15,13 +16,49 @@
             </li>
         </ul>
     </head>
-    <body>
-        
-       <h1>STUFF</h1>
 
-        
+    <body>
+        <section id="productForm">
+            <form id="productEditor" action="/edit/editAProduct{{product.id}}" method="post">
+                <ul>
+                    <li> Name <input type="text" name="newProductName" placeholder="{{product.name}}"> </li>
+                    <li>Type <select name='type_choice' id="typesofproducts">
+                            {%for type in types%}
+                            <option value="{{type.id}}">{{type.name}}</option>
+                            {%endfor%}
+                        </select>
+                    </li>
+
+
+
+                    <li>Brand <select name='brand_choice' id="brandsofproducts">
+                        {%for brand in brands%}
+                        <option value="{{brand.id}}">{{brand.name}}</option>
+                        {%endfor%}
+                    </select>
+
+
+                    </li>
+                    <li>Distributor Price <input type="text" name="newProductDistPrice"
+                            placeholder="{{product.distributor_price}}"></li>
+                    <li>Sale Price <input type="text" name="newProductName" placeholder="{{product.sale_price}}"></li>
+                    <li>Warranty Length <input type="text" name="newProductName"
+                            placeholder="{{product.warranty_length}}"></li>
+                    <li>Description <input type="text" name="newProductDescription"
+                            placeholder="{{product.description}}" > </li>
+
+
+
+
+                </ul>
+
+
+            </form>
+
+        </section>
+
+
+
     </body>
 </section>
 {%endblock%}
-
-
