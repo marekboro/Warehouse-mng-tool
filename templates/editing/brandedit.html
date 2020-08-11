@@ -1,0 +1,47 @@
+{%extends 'editing/index.html'%} 
+
+{%block foo%}
+<section id ="editoptions">
+    <head >
+        <ul>
+            <li>
+                <a href="/edit/prod-edit">Products</a>
+            </li>
+            <li>
+                <a href="/edit/brand-edit">InBrands</a>
+            </li>
+            <li>
+                <a href="/edit/type-edit">Types</a>
+            </li>
+        </ul>
+    </head>
+    <body>
+        <div id = newbrand> NEW </div>
+        <table id = "tableEditProducts">
+            <tr id = tableEditProductsColumns>
+                <th>Type</th>
+                <th>Description</th>
+                <th>Warranty</th>
+
+                
+            </tr>
+            {%for brand in brands%}
+            <tr>
+                <a href="">
+                    <th>{{brand.name}}</th>
+                    <th>{{brand.description}}</th>
+                    <th>{{brand.warranty_details}}</th>
+                </a>
+                
+
+            </tr>
+            {%endfor%}
+        </table>
+
+        
+    </body>
+</section>
+{%endblock%}
+
+
+

@@ -1,0 +1,27 @@
+#tableEditProducts {
+    display: flex;
+    justify-content: space-evenly;
+    
+    /* display: grid; */
+    /* grid-template-columns: 2fr 1fr 1fr 1fr 1fr 1fr 1fr ; */
+    background-color: rgb(243, 130, 153);
+    
+}
+
+#tableEditBrands {
+    display: flex;
+    justify-content: space-evenly;
+    
+    /* display: grid; */
+    /* grid-template-columns: 2fr 1fr 1fr 1fr 1fr 1fr 1fr ; */
+    background-color: rgb(243, 130, 153);
+    
+}
+#tableEditsTypes {
+    display: flex;
+    justify-content: space-evenly;
+    
+    /* display: grid; */
+    /* grid-template-columns: 2fr 1fr 1fr 1fr 1fr 1fr 1fr ; */
+    background-color: rgb(243, 130, 153);
+}
