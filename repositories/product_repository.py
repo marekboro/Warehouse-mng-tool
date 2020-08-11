@@ -60,10 +60,11 @@ def delete(id):
     run_sql(sql,values)
 
 def select(id):
-    sql = "SELECT FROM products WHERE id=%s"
+    sql = "SELECT * FROM products WHERE id=%s"
     values = [id]
     result = run_sql(sql,values)[0]
-    
+    #print(f"result: {result}")
+
     product_type = product_type_repository.select(result['product_type_id'])
     brand = brand_repository.select(result['brand_id'])
     
@@ -78,6 +79,11 @@ def select(id):
             result['id']
         )
     return a_product
+
+
+
+
+
 
 def update(product):
     sql = "UPDATE products SET (name,product_type_id, brand_id, description,distributor_price,sale_price,warranty_length) = (%s,%s,%s,%s,%s,%s,%s) WHERE id = %s"

@@ -9,10 +9,10 @@
         <tr>
             <th>Name</th>
             <th>Type</th>
-            <th>Brand name</th>
-            <th>Brand description</th>
-            <th>Warranty period</th>
-            <th>Brand warranty</th>
+            <th>Brand</th>
+            <th>Brand desc.</th>
+            <th>Warranty/th>
+            <th>Warranty length</th>
             <th>Price(dist)</th>
             <th>Price(sale)</th>
             <th>Markup</th>
@@ -21,8 +21,26 @@
         </tr>
         
         
-       
-        {%for a_product in products%}
+        {%for a_stock_item in stocks%}
+        
+        <tr>
+            <th>{{a_stock_item.product.name}}</th>
+            <th>{{a_stock_item.product.product_type.name}}</th>
+            <th>{{a_stock_item.product.brand.name}}</th>
+            <th>{{a_stock_item.product.brand.description}}</th>
+            <th>{{a_stock_item.product.brand.warranty_details}}</th>
+            <th>{{a_stock_item.product.warranty_length}}</th>
+            <th>{{a_stock_item.product.distributor_price}}</th>
+            <th>{{a_stock_item.product.sale_price}}</th>
+            <th>{{a_stock_item.product.get_markup()}}</th>
+            <th>{{a_stock_item.count}}</th>
+        
+            <th>to b</th>
+            <th></th>
+            <!-- <th>{{count_total}}</th> -->
+        </tr>
+        {%endfor%}
+        <!-- {%for a_product in products%}
         <tr>
             <th>{{a_product.name}}</th>
             <th>{{a_product.product_type.name}}</th>
@@ -37,7 +55,7 @@
             <th></th>
             
         </tr>
-        {%endfor%}
+        {%endfor%} -->
         
 
     </table>

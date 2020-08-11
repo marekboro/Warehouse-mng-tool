@@ -4,4 +4,6 @@ class Stock():
         self.count = count
         self.id = id
 
+    def modify_count(self,value):
+        self.count = self.count + value
 

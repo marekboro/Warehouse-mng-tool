@@ -130,13 +130,12 @@ def setup_products():
 def create_stock_from_products():
     all_products = product_repository.select_all()
     for product in all_products:
-        item_to_stock = Stock(product, 2)
+        item_to_stock = Stock(product)
+        item_to_stock.modify_count(2)
+        print(f" WTH :  {item_to_stock.count}")
         # item_to_stock = Stock(product)
         stock_repository.save(item_to_stock)
-
-
-def test_stock():
-    all_products = product_repository.select_all()
+        #stock_repository.modify_stock_count_of_item(item_to_stock,2)
 
 
 clear_all_tables()
