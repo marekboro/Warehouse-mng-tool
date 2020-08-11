@@ -50,6 +50,16 @@ text-align:  center;
     
 }
 
+.lowStock{
+    background-color: rgb(196, 240, 0);
+    color: green;
+}
+
+.noStock{
+    background-color: ghostwhite;
+    color: gold;
+}
+
 #fulltable {
     display: flex;
     justify-content: space-around;

@@ -24,11 +24,17 @@
 
             <th>{{stock_item.product.name}}</th>
             <th>{{stock_item.product.brand.name}}</th>
-            
             <th>{{stock_item.product.distributor_price}}</th>
             <th>{{stock_item.product.sale_price}}</th>
             <th>{{stock_item.product.get_markup()}}</th>
-            <th>{{stock_item.count}}</th>
+            
+            {% if 0< stock_item.count < 10 %}
+            <th class = "lowStock">{{stock_item.count}}</th>
+            {% elif stock_item.count == 0 %}
+            <th class = "noStock"> {{stock_item.count}}</th>
+            {% else %}
+            <th> {{stock_item.count}}</th>
+            {%endif%}
             <th></th>
             <th>  1  </th>
             <th>  2 </th>
