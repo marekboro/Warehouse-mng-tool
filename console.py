@@ -132,7 +132,7 @@ def create_stock_from_products():
     for product in all_products:
         item_to_stock = Stock(product)
         item_to_stock.modify_count(2)
-        print(f" WTH :  {item_to_stock.count}")
+        #print(f" WTH :  {item_to_stock.count}")
         # item_to_stock = Stock(product)
         stock_repository.save(item_to_stock)
         #stock_repository.modify_stock_count_of_item(item_to_stock,2)

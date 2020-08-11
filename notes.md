@@ -32,7 +32,7 @@ DELETE
 
 
 FOR SELECT(ID)!!!: 
-MASE SURE to add * in the SELECT syntax!!! 
+MAKE SURE to add * in the SELECT syntax!!! 
 
 
 4. CONTROLLERS AND HTML
@@ -50,4 +50,4 @@ also cannot have 2 blocks next to each other
 {%block foo1%} {%endblock%}
 {%block foo2%} {%endblock%}
 
-W
+
