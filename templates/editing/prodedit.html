@@ -22,12 +22,14 @@
                 <th>Name</th>
                 <th>Brand name</th>
                 <th>Type of product</th>
+                <th></th>
             </tr>
             {%for product in products%}
             <tr>
                 <th>{{product.name}}</th>
                 <th>{{product.brand.name}}</th>
                 <th>{{product.product_type.name}}</th>
+                <th><button>DELETE</button></th>
             </tr>
             {%endfor%}
         </table>

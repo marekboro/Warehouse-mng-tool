@@ -20,10 +20,12 @@
         <table id = "tableEditsTypes">
             <tr id = tableEditTypesColumns>
                 <th>Type:</th>
+                <th></th>
             </tr>
             {%for type in types%}
             <tr>
                 <th>{{type.name}}</th>
+                <th><button>DELETE</button></th>
                 
             </tr>
             {%endfor%}
