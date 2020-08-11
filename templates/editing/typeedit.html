@@ -16,20 +16,31 @@
         </ul>
     </head>
     <body>
-        <div id = newType> NEW </div>
+        
         <table id = "tableEditsTypes">
             <tr id = tableEditTypesColumns>
-                <th>Type:</th>
+                <th>Types:</th>
                 <th></th>
             </tr>
             {%for type in types%}
             <tr>
-                <th>{{type.name}}</th>
-                <!-- <th><button formtarget = "/edit/removeType{{type.id}}" type="submit"  >DELETE</button></th> -->
-                <th> <a href=" /edit/removeType{{type.id}}"> DELETE</a> </th>
-                
+                <th>
+                    <form action="/edit/modifyType{{type.id}}" method = "post">
+                        <input type="text" name="newTypeName" value="{{type.name}}"> 
+                        <input type="submit" value="Update">
+                    </form>
+                </th>
+                <th> <a href=" /edit/removeType{{type.id}}"> DELETE</a> </th>   
             </tr>
             {%endfor%}
+            <tr>
+                <th>
+                    <form action="/edit/createType" method = "post"> 
+                        <input type="text" name="newTypeName" value=""> 
+                        <input type="submit" value="Create">
+                    </form>
+                </th>
+            </tr>
         </table>
 
         
