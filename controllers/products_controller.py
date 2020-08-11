@@ -37,9 +37,11 @@ def products_extended_view():
 @products_blueprint.route("/edit")
 def products_edit():
     products = product_repository.select_all()  
-    return render_template("index.html", products = products)
+    return render_template("editing/index.html", products = products)
 
 @products_blueprint.route("/basket")
 def products_basket():
     products = product_repository.select_all()  
     return render_template("index.html", products = products)
+
+
