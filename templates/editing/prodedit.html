@@ -35,14 +35,29 @@
                     <th> <a href="/edit/editAProduct{{product.id}}">{{product.name}}</a></th>
                     <th> <a href="/edit/editAProduct{{product.id}}">{{product.brand.name}}</a></th>
                     <th> <a href="/edit/editAProduct{{product.id}}">{{product.product_type.name}}</a></th>
-                    <th> <a href=" /edit/removeProduct{{product.id}}"> DELETE</a> </th>
+                    <th> 
+
+                        <form action="/edit/removeProduct{{product.id}}" > 
+                            <input type="submit" value="DELETE">
+                        </form>
+                        <!-- <a href=" /edit/removeProduct{{product.id}}"> DELETE</a> -->
+                    </th>
                 </tr>
                 {%endfor%}
                 <tr>
                     <th></th>
                     <th></th>
                     <th></th>
-                    <th><a class = "button" href="/edit/addAProduct"> NEW</a></th>
+                    <th>
+                        
+                        <form action="/edit/addAProduct" > 
+                            <input type="submit" value="NEW product">
+                        </form>
+
+                        <!-- <a class = "button" href="/edit/addAProduct"> NEW</a> -->
+                    
+                    
+                    </th>
                     
                 </tr>
             </table>

@@ -16,9 +16,9 @@
         </ul>
     </head>
     <body>
-        <div id = newbrand> <a href="/edit/addABrand">N E W </a> </div>
-        <table id = "tableEditProducts">
-            <tr id = tableEditProductsColumns>
+    
+        <table class="simpletable">
+            <tr class = "titlerowintable">
                 
                 <th>Brand</th>
                 <th>Description</th>
@@ -29,18 +29,38 @@
                 
             </tr>
             {%for brand in brands%}
-            <tr>
+            <tr class = "hoveroverrow">
                 
                     <th><a href="/edit/editBrand{{brand.id}}">{{brand.name}}</a> </th>
                     <th><a href="/edit/editBrand{{brand.id}}">{{brand.description}}</a></th>
                     <th><a href="/edit/editBrand{{brand.id}}">{{brand.warranty_details}}</a></th>
                 
-                <th> <a href=" /edit/removeBrand{{brand.id}}"> DELETE</a> </th>
+                <th> 
+
+                    <form action="/edit/removeBrand{{brand.id}}"> 
+                    
+                        <input type="submit" value="DELETE">
+                    </form>
+
+
+                
+                </th>
                 
                 
 
             </tr>
             {%endfor%}
+            <tr>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th>
+                    <form action="/edit/addABrand"> 
+                    
+                    <input type="submit" value=" N E W ">
+                    </form>
+                </th>
+            </tr>
         </table>
 
         

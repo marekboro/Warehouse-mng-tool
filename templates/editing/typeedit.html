@@ -17,20 +17,28 @@
     </head>
     <body>
         
-        <table id = "tableEditsTypes">
-            <tr id = tableEditTypesColumns>
+        <table class="simpletable">
+            <tr class = "titlerowintable">
                 <th>Types:</th>
                 <th></th>
             </tr>
             {%for type in types%}
-            <tr>
+            <tr class = "hoveroverrow">
                 <th>
                     <form action="/edit/modifyType{{type.id}}" method = "post">
                         <input type="text" name="newTypeName" value="{{type.name}}"> 
                         <input type="submit" value="Update">
                     </form>
                 </th>
-                <th> <a href=" /edit/removeType{{type.id}}"> DELETE</a> </th>   
+                <th> 
+                    <form action="/edit/removeType{{type.id}}" > 
+                        
+                        <input type="submit" value="DELETE">
+                    </form>
+                    
+                    
+                
+                </th>   
             </tr>
             {%endfor%}
             <tr>
