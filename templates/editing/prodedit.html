@@ -19,17 +19,18 @@
 
     <body>
         <section id=editingProducts>
-            <div id=newProduct> <a href="/edit/addAProduct"> N E W</a></div>
+            <!-- <div id=newProduct> <a class = "newbutton" href="/edit/addAProduct"> N E W</a></div> -->
+             <!-- <a class = "button" href="/edit/addAProduct"> NEW</a> -->
 
-            <table id="tableEditProducts">
-                <tr id=tableEditProductsColumns>
+            <table class="simpletable">
+                <tr class = "titlerowintable">
                     <th>Name</th>
                     <th>Brand name</th>
                     <th>Type of product</th>
                     <th></th>
                 </tr>
                 {%for product in products%}
-                <tr>
+                <tr class = "hoveroverrow">
                     <a href="/edit/editAProduct{{product.id}}"></a>
                     <th> <a href="/edit/editAProduct{{product.id}}">{{product.name}}</a></th>
                     <th> <a href="/edit/editAProduct{{product.id}}">{{product.brand.name}}</a></th>
@@ -37,6 +38,13 @@
                     <th> <a href=" /edit/removeProduct{{product.id}}"> DELETE</a> </th>
                 </tr>
                 {%endfor%}
+                <tr>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th><a class = "button" href="/edit/addAProduct"> NEW</a></th>
+                    
+                </tr>
             </table>
         </section>
 

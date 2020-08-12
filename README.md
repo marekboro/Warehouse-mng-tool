@@ -18,11 +18,11 @@
 # Brief: 
 ## MVP:
 - [x] Inventory should track individual <code>products</code> including their: name, description, stock quantity, buying cost and selling price
--[x] Should track manufacturers (<code>brand</code>), including: name and other details.
--[x] Edit <code>brand</code>s, and <code>product</code>s seperately
--[x] Create <code>brand</code>s, and <code>product</code>s seperately
--[x] Show and inventory page that lists all details for all products
--[x] Visually highlight LOW stock as well as OUT OF STOCK
+- [x] Should track manufacturers (<code>brand</code>), including: name and other details.
+- [x] Edit <code>brand</code>s, and <code>product</code>s seperately
+- [x] Create <code>brand</code>s, and <code>product</code>s seperately
+- [x] Show and inventory page that lists all details for all products
+- [x] Visually highlight LOW stock as well as OUT OF STOCK
 
 ## EXTENSIONS:
 - [x] Added a basket feature that allows me to restock the products.

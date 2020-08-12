@@ -4,8 +4,8 @@
     <h1> THE simple view table goes here BLOCK</h1>
 
 
-    <table id="simpletable">
-        <tr>
+    <table class="simpletable">
+        <tr class = "titlerowintable">
             <th>Name</th>
             <th>Brand</th>
             <th>cost</th>
@@ -18,7 +18,7 @@
 
         </tr>
         {%for stock_item in stocks%}
-        <tr>
+        <tr class = "hoveroverrow">
 
 
             <th>{{stock_item.product.name}}</th>

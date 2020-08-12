@@ -31,6 +31,44 @@ footer {
 
 }
 
+.newbutton{
+    /* background-color: tomato;
+    padding-right: 10%;
+    text-align: center;
+    display: inline-block; */
+    background-color: #4CAF50;
+    border: none;
+    color: rgb(0, 0, 0);
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 2px 2px;
+    cursor: pointer;
+
+}
+
+.mainmenubutton {
+    /* background-color: cadetblue; */
+    background-color: rgb(9, 224, 9);
+    border: none;
+    color: rgb(0, 0, 0);
+    /* padding: 0% 3%; */
+    /* padding-top: 10%;
+    padding-bottom: 10%; */
+    font-size: 2.0vw;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    /* font-size: 16px; */
+    margin: 1px;
+    cursor: pointer;
+    
+}
+.mainmenubutton:hover {
+    background-color: teal;
+}
 
 footer > section {
 display: flex;
@@ -40,15 +78,31 @@ background-color: chocolate;
 text-align:  center;
 }
 
-#simpletable {
-    display: flex;
-    justify-content: space-evenly;
-    
-    /* display: grid; */
-    /* grid-template-columns: 2fr 1fr 1fr 1fr 1fr 1fr 1fr ; */
-    background-color: crimson;
+.simpletable {
+    /* display: flex;
+    justify-content: space-evenly; */
+    background-color: rgb(173, 233, 233);
+    border: 1px solid black;
+    width: 100%;
     
 }
+
+.titlerowintable{
+    background-color: rgb(13, 172, 13);
+    color: rgb(24, 37, 94);
+}
+.simpletable > tr >th {
+    padding: 8px;
+    text-align: left;
+    border-bottom: 3px solid#ddd;
+    
+}
+
+.hoveroverrow:hover {
+    background-color: rgb(70, 218, 95);
+}
+
+
 
 .lowStock{
     background-color: rgb(207, 176, 0);
@@ -119,4 +173,3 @@ padding-left: 2%;
 }
 
 
-}

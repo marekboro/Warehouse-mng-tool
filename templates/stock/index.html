@@ -3,8 +3,8 @@
 {%block foo%}
 <section id="page1">
     <h1> Full VIEW</h1>
-    <table id="fulltable">
-        <tr id=columnNames>
+    <table class="simpletable">
+        <tr class = "titlerowintable">
             <th>Name</th>
             <th>Description</th>
             <th>Type</th>
@@ -19,7 +19,7 @@
             <th>Basket</th>
         </tr>
         {%for a_stock_item in stocks%}
-        <tr>
+        <tr class = "hoveroverrow">
             <th>{{a_stock_item.product.name}}</th>
             <th class="descriptionCell">{{a_stock_item.product.description}}</th>
             <th>{{a_stock_item.product.product_type.name}}</th>
