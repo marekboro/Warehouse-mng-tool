@@ -58,3 +58,6 @@ ADDING BASKET:
 in stock.py - added basket variable to stock class
 Inventory.psql - added basket to TABLE
 stock repository - added basket variable throughtout the methods
+
+
+FLASK - when you accidentally stop the process using CTRL+Z, resume by putting 'fg %1' in console

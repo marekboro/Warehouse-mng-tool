@@ -17,7 +17,7 @@ product_types_blueprint = Blueprint("types", __name__)
 
 @product_types_blueprint.route("/edit/type-edit")
 def types_editing_view():
-    #products = product_repository.select_all()
+ 
     types = product_type_repository.select_all()
     return render_template("editing/typeedit.html", types = types)
 
