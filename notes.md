@@ -53,3 +53,8 @@ also cannot have 2 blocks next to each other
 
 
 
+ADDING BASKET: 
+
+in stock.py - added basket variable to stock class
+Inventory.psql - added basket to TABLE
+stock repository - added basket variable throughtout the methods

@@ -43,11 +43,6 @@ def products_edit():
     products = product_repository.select_all()  
     return render_template("editing/index.html", products = products)
 
-@products_blueprint.route("/basket")
-def products_basket():
-    #products = product_repository.select_all()  
-    return render_template("basket/index.html")
-
 
 
 @products_blueprint.route("/edit/prod-edit")

@@ -26,3 +26,39 @@ def stocks_main():
 #     products = product_repository.select_all()
     
 #     return render_template("index.html", products = products)
+
+@stocks_blueprint.route("/basket")
+def basket_main():
+    
+    stocks = stock_repository.select_all()
+    
+    return render_template("stock/basket.html", stocks = stocks)
+
+
+@stocks_blueprint.route("/SubmitOrders", methods = ["POST"])
+def basket_to_stock():
+    
+    stocks = stock_repository.select_all()
+    for stock in stocks:
+        stock.count += stock.basket
+        stock.basket =0
+        stock_repository.update(stock)
+
+    return redirect("/")  
+
+
+@stocks_blueprint.route("/updatebasket<id>", methods = ["POST"])
+def update_basket(ID):
+    stock_item = stock_repository.select(id)
+    print("1")
+    new_basket= int(request.form["newBasketCount"])
+    print(new_basket)
+    new_stock_item = Stock(stock_item.product,stock_item.count,new_basket,stock_item.id)
+    #print("3")
+    stock_repository.update(new_stock_item)
+    #print("4")
+    
+
+    #return render_template("stock/basket.html", stocks = stocks)
+    return redirect("/basket")
+    

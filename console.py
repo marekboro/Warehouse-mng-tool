@@ -115,16 +115,6 @@ def setup_products():
     product_repository.save(product_4)
 
 
-# def setup_stock():
-#     all_products = product_repository.select_all()
-#     for product in all_products:
-#         pass
-# I want to add specific amounts of a specific product to the stock ... that way I do not have to do fancy COUNT in psql.
-
-# product_repository.delete(product_1.id)
-# product_repository.delete(product_2.id)
-
-# print(product_repository.select(product_1.id).name)
 
 
 def create_stock_from_products():
@@ -133,9 +123,12 @@ def create_stock_from_products():
         item_to_stock = Stock(product)
         item_to_stock.modify_count(2)
         #print(f" WTH :  {item_to_stock.count}")
-        # item_to_stock = Stock(product)
+        #item_to_stock = Stock(product)
         stock_repository.save(item_to_stock)
+    #for stock in stock_repository.select_all():
+      #  print(f" 1 {stock.id}")
         #stock_repository.modify_stock_count_of_item(item_to_stock,2)
+
 
 
 clear_all_tables()

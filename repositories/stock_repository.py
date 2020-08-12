@@ -30,14 +30,14 @@ import repositories.product_repository as product_repository
 
 def save(stock):
     
-    sql = "INSERT INTO stock (product_id, count) VALUES (%s, %s) RETURNING *"
+    sql = "INSERT INTO stock (product_id, count1, basket) VALUES (%s, %s, %s) RETURNING id"
     #sql = "INSERT INTO stock (product_id) VALUES (%s) RETURNING *"
     #sql = "INSERT INTO stock (product_id, product_type_id, brand_id, count) VALUES (%s,%s,%s, %s) RETURNING id"
     #values = [stock.product.id, stock.product.product_type.id, stock.product.brand.id, 0]
     
-    values = [stock.product.id, stock.count]
+    values = [stock.product.id, stock.count1, stock.basket]
     result = run_sql(sql,values)
-    id= result[0]['id']
+    id= result[0]["id"]
     stock.id = id
     #return stock
 
@@ -69,7 +69,7 @@ def select_all():
         #product = product_repository.select(row) ## # 
         #product = product_repository.select(row['product_id']) ## # 
 
-        a_product_in_stock = Stock(product,row['count'])
+        a_product_in_stock = Stock(product,row['count1'],row['basket'])
         #a_product_in_stock = Stock(product,row['count'])
         all_stock.append(a_product_in_stock)
     
@@ -84,10 +84,11 @@ def delete_all():
 def select(id):
     sql = "SELECT * FROM stock WHERE id = %s"
     values = [id]
-    result = run_sql(sql, values)
+    result = run_sql(sql,values)[0]
     if result is not None:
         product = product_repository.select(result['product_id'])
-        the_stock = Stock(product,result['count'])
+        the_stock = Stock(product,result['count1'],result['basket'],result['id'])
+    
     return the_stock
 
 
@@ -108,15 +109,15 @@ def select(id):
 #     run_sql(sql,values)
 
 def update(stock):
-    sql = "UPDATE stock SET(product_id,count) = (%s,%s) WHERE id = %s"
-    values = [stock.product.id, stock.count,stock.id]
+    sql = "UPDATE stock SET(product_id,count1,basket) = (%s,%s,%s) WHERE id = %s"
+    values = [stock.product.id, stock.count1,stock.basket,stock.id]
     run_sql(sql,values)
 
 
 def modify_stock_count_of_item(stock, count_modifier):
-    sql = "UPDATE stock SET(product_id,count) = (%s,%s) WHERE id = %s"
-    new_count = stock.count + count_modifier
-    values = [[stock.product.id, new_count ,stock.id]]
+    sql = "UPDATE stock SET(product_id,count1,basket) = (%s,%s,%s) WHERE id = %s"
+    new_count = stock.count1 + count_modifier
+    values = [stock.product.id, new_count, stock.basket ,stock.id]
     run_sql(sql,values)
     
     
@@ -130,11 +131,15 @@ def modify_stock_count_of_item(stock, count_modifier):
     
     
 
+def delete_stock(id):
+    sql = "DELETE FROM stock WHERE id =%s"
+    values = [id]
+    run_sql(sql,values)
 
 
 #SELECT one using ID
 #DELETE one using ID
-#UPDATE one using ID
+
 
 
 # def save(biting):

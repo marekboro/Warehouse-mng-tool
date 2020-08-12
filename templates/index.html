@@ -8,8 +8,8 @@
         <tr>
             <th>Name</th>
             <th>Brand</th>
-            <th>Price(distributor)</th>
-            <th>Price(sale)</th>
+            <th>cost</th>
+            <th>sale</th>
             <th>Markupx1</th>
             <th>Markup total</th>
             <th>Stock</th>
@@ -30,14 +30,14 @@
             <th>{{stock_item.product.get_markup()}}</th>
             <th>{{stock_item.get_markup_based_on_stock_count()}}</th>
             
-            {% if 0< stock_item.count < 10 %}
-            <th class = "lowStock">{{stock_item.count}}</th>
-            {% elif stock_item.count == 0 %}
-            <th class = "noStock"> {{stock_item.count}}</th>
+            {% if 0< stock_item.count1 < 10 %}
+            <th class = "lowStock">{{stock_item.count1}}</th>
+            {% elif stock_item.count1 == 0 %}
+            <th class = "noStock"> {{stock_item.count1}}</th>
             {% else %}
-            <th> {{stock_item.count}}</th>
+            <th> {{stock_item.count1}}</th>
             {%endif%}
-            <th></th>
+            <th>{{stock_item.basket}}</th>
             <th>  1  </th>
             <th>  2 </th>
             <th>  3 </th>

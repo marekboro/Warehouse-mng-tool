@@ -49,4 +49,5 @@ def editor_for_new_brand():
 def adding_new_brand():
     new_brand = Brand(request.form['newBrandName'],request.form['newBrandDescription'],request.form['newBrandWarranty'])
     brand_repository.save(new_brand)
+    
     return redirect("/edit/brand-edit")

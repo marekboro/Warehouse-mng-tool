@@ -65,19 +65,20 @@ def select(id):
     result = run_sql(sql,values)[0]
     #print(f"result: {result}")
 
-    product_type = product_type_repository.select(result['product_type_id'])
-    brand = brand_repository.select(result['brand_id'])
-    
-    a_product = Product(
-            result['name'],
-            product_type,
-            brand,
-            result['description'],
-            result['distributor_price'],
-            result['sale_price'],
-            result['warranty_length'],
-            result['id']
-        )
+    if result is not None:
+        product_type = product_type_repository.select(result['product_type_id'])
+        brand = brand_repository.select(result['brand_id'])
+        
+        a_product = Product(
+                result['name'],
+                product_type,
+                brand,
+                result['description'],
+                result['distributor_price'],
+                result['sale_price'],
+                result['warranty_length'],
+                result['id']
+            )
     return a_product
 
 

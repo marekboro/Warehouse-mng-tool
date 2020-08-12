@@ -30,11 +30,9 @@ CREATE TABLE products(
 
 CREATE TABLE stock (
     id SERIAL PRIMARY KEY,
-    product_id SERIAL REFERENCES products(id) ON DELETE CASCADE,
-    -- product_type_id SERIAL REFERENCES types(id),
-    -- brand_id SERIAL REFERENCES brands(id),
-    count INT
-   
+    product_id SERIAL REFERENCES products(id),
+    count1 INT,
+    basket INT
 );
 
 -- NOTE TO SELF!  ALWAYS USE   createdb database_name  in CONSOLE!  - to create the database before working on it
