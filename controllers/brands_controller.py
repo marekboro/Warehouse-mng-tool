@@ -9,7 +9,7 @@ brands_blueprint = Blueprint("brands", __name__)
 
 @brands_blueprint.route("/edit/brand-edit") # TO view the brands
 def brands_editing_view():
-    #products = product_repository.select_all()  
+   
     brands = brand_repository.select_all()
     return render_template("editing/brandedit.html",brands = brands)
 

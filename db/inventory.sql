@@ -28,9 +28,9 @@ CREATE TABLE products(
     warranty_length INT
 );
 
-CREATE TABLE stock (
+CREATE TABLE stock(
     id SERIAL PRIMARY KEY,
-    product_id SERIAL REFERENCES products(id),
+    product_id SERIAL REFERENCES products(id) ON DELETE CASCADE,
     count1 INT,
     basket INT
 );

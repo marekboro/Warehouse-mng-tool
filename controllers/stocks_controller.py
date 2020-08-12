@@ -40,7 +40,7 @@ def basket_to_stock():
     
     stocks = stock_repository.select_all()
     for stock in stocks:
-        stock.count += stock.basket
+        stock.count1 += stock.basket
         stock.basket =0
         stock_repository.update(stock)
 
@@ -48,17 +48,16 @@ def basket_to_stock():
 
 
 @stocks_blueprint.route("/updatebasket<id>", methods = ["POST"])
-def update_basket(ID):
+def update_basket(id):
     stock_item = stock_repository.select(id)
-    print("1")
-    new_basket= int(request.form["newBasketCount"])
-    print(new_basket)
-    new_stock_item = Stock(stock_item.product,stock_item.count,new_basket,stock_item.id)
-    #print("3")
-    stock_repository.update(new_stock_item)
-    #print("4")
     
+    new_basket= request.form["newBasketCount"]
+   
+    
+    new_stock_item = Stock(stock_item.product,stock_item.count1,new_basket,id)
+  
+    stock_repository.update(new_stock_item)
 
-    #return render_template("stock/basket.html", stocks = stocks)
+
     return redirect("/basket")
     

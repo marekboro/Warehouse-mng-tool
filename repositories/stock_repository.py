@@ -61,16 +61,9 @@ def select_all():
     sql = "SELECT * FROM stock"
     result = run_sql(sql)
     for row in result:
-        #print(f" this is the row :{row}")
-        #print(row[1])
+        
         product = product_repository.select(row[1])
-
-        #product = select_product(row) ## # 
-        #product = product_repository.select(row) ## # 
-        #product = product_repository.select(row['product_id']) ## # 
-
-        a_product_in_stock = Stock(product,row['count1'],row['basket'])
-        #a_product_in_stock = Stock(product,row['count'])
+        a_product_in_stock = Stock(product,row['count1'],row['basket'],row['id'])
         all_stock.append(a_product_in_stock)
     
     return all_stock

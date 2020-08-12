@@ -1,5 +1,5 @@
 import pdb
-
+import random
 from models.product_type import ProductType
 from models.brand import Brand
 from models.product import Product
@@ -19,17 +19,18 @@ def clear_all_tables():
 
 
 def setup_product_types():
-    product_type_name_1 = "Le-Phonette"
+
+    product_type_name_1 = "Smartphone"
     global product_type_1
     product_type_1 = ProductType(product_type_name_1)
-    product_type_name_2 = "Le-Phonne"
+    product_type_name_2 = "Feature Phone"
     global product_type_2
     product_type_2 = ProductType(product_type_name_2)
-    product_type_name_3 = "Zz Charger"
-    global product_type_3  # = ProductType(product_type_name_3)
+    product_type_name_3 = "Charger"
+    global product_type_3
     product_type_3 = ProductType(product_type_name_3)
-    product_type_name_4 = "Some accessory"
-    global product_type_4  # = ProductType(product_type_name_4)
+    product_type_name_4 = "Screen protector"
+    global product_type_4
     product_type_4 = ProductType(product_type_name_4)
 
     product_type_repository.save(product_type_1)
@@ -38,42 +39,27 @@ def setup_product_types():
     product_type_repository.save(product_type_4)
 
 
-# # # # # # updating by ID
-# new_name_for_product1 = "it works"
-# new_id = product_type_1.id
-# new_product_1 = ProductType(new_name_for_product1,new_id)
-# product_type_repository.update(new_product_1)
-# # # # # #
-
-# product_type_repository
-
-
 def setup_brands():
 
     brand1_name = "Dappel"
     brand1_description = "like Mappel but with a D"
-    brand1_warranty_details = "you get robbed"
-    global brand1  # = Brand(brand1_name,brand1_description,brand1_warranty_details)
+    brand1_warranty_details = "Daylight robbery"
+    global brand1
     brand1 = Brand(brand1_name, brand1_description, brand1_warranty_details)
-    global brand2  # = Brand("ShangTsung","soul-stealer","certain-death")
-    brand2 = Brand("ShangTsung", "soul-stealer", "certain-death")
+    global brand2
+    brand2 = Brand("ShangTsung", "Soul-eater", "Combustable")
     brand_repository.save(brand1)
     brand_repository.save(brand2)
 
 
-# # # # # # UPDATE BRANDS by ID
-# brand_repository.update(Brand("Goro","a monster","fatality",brand2.id))
-# brand_repository.delete(brand2.id)
-
-
 def setup_products():
 
-    product_1_name = "Zapper"
-    product_1_description = "It will zapp you into the future"
+    product_1_name = "ED209"
+    product_1_description = "Not great on stairs"
     product_1_distributor_price = 200
     product_1_sale_price = 600
     product_1_warranty_length = 120
-    global product_1  # = Product(product_1_name,product_type_1,brand1,product_1_description, product_1_distributor_price,product_1_sale_price,product_1_warranty_length)
+    global product_1
     product_1 = Product(
         product_1_name,
         product_type_1,
@@ -88,7 +74,7 @@ def setup_products():
     product_2_distributor_price = 300
     product_2_sale_price = 700
     product_2_warranty_length = 140
-    global product_2  # = Product(product_2_name,product_type_1,brand1,product_2_description, product_2_distributor_price,product_2_sale_price,product_2_warranty_length)
+    global product_2
     product_2 = Product(
         product_2_name,
         product_type_1,
@@ -99,12 +85,12 @@ def setup_products():
         product_2_warranty_length,
     )
 
-    global product_3  # = Product(product_2_name,product_type_1,brand1,product_2_description, product_2_distributor_price,product_2_sale_price,product_2_warranty_length)
+    global product_3
     product_3 = Product(
         product_2_name, product_type_3, brand2, product_2_description, 130, 500, 300
     )
 
-    global product_4  # = Product(product_2_name,product_type_1,brand1,product_2_description, product_2_distributor_price,product_2_sale_price,product_2_warranty_length)
+    global product_4
     product_4 = Product(
         product_2_name, product_type_4, brand2, product_2_description, 140, 360, 150
     )
@@ -115,20 +101,16 @@ def setup_products():
     product_repository.save(product_4)
 
 
-
-
 def create_stock_from_products():
     all_products = product_repository.select_all()
+    choices = range(0,30)
+    
     for product in all_products:
         item_to_stock = Stock(product)
-        item_to_stock.modify_count(2)
-        #print(f" WTH :  {item_to_stock.count}")
-        #item_to_stock = Stock(product)
-        stock_repository.save(item_to_stock)
-    #for stock in stock_repository.select_all():
-      #  print(f" 1 {stock.id}")
-        #stock_repository.modify_stock_count_of_item(item_to_stock,2)
+        random_number = random.choice(choices)
+        item_to_stock.modify_count(random_number)
 
+        stock_repository.save(item_to_stock)
 
 
 clear_all_tables()
@@ -136,16 +118,6 @@ setup_product_types()
 setup_brands()
 setup_products()
 create_stock_from_products()
-
-
-# stock1 = Stock(product_1)
-# stock_repository.save(stock1)
-
-# print(product_type_repository.select(0).name)
-
-# # # # # UPDATE product works
-# product3= Product("buzzbuzz",product_type_1,brand2,"makes Buzzing sounds",100,245,365,product_2.id)
-# product_repository.update(product3)
 
 
 pdb.set_trace()

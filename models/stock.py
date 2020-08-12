@@ -1,4 +1,4 @@
-#from models.product import Product
+
 
 class Stock():
     #def __init__(self, product, count = 0, id = None):

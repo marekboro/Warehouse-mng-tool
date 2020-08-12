@@ -2,8 +2,6 @@
 {%block foo%}
 <section id="Basket">
     <h2> EDIT AND PROCEED WITH RESTOCKING REQUESTS</h2>
-
-
     <table id="basketTable">
         <tr>
             <th>Name</th>
@@ -12,23 +10,17 @@
             <th>Stock</th>
             <th>Baseket review</th>
             <th></th>
-            
-            
-
         </tr>
         {%for stock_item in stocks%}
         <tr>
-
-
             <th>{{stock_item.product.name}}</th>
             <th>{{stock_item.product.brand.name}}</th>
             <th>{{stock_item.product.product_type.name}}</th>
-            <th>{{stock_item.count}}</th>
-            <form action="/updatebasket{{stock_item.id}}" method = "post">
-            <th><input type="text" name="newBasketCount" value="{{stock_item.id}}">     </th>
-             <th>   <input type="submit" value="Update Basket"></th>
+            <th>{{stock_item.count1}}</th>
+            <form action="/updatebasket{{stock_item.id}}" method="post">
+                <th><input type="text" name="newBasketCount" value="{{stock_item.basket}}"> </th>
+                <th> <input type="submit" value="Update Basket"></th>
             </form>
-
         </tr>
         {%endfor%}
         <tr>
@@ -37,14 +29,10 @@
             <th></th>
             <th></th>
             <th></th>
-
-            <form action="/SubmitOrders" method = "POST">
-            <th><input type="submit" value="Place ORDERS"></th>
+            <form action="/SubmitOrders" method="POST">
+                <th><input type="submit" value="Place ORDERS"></th>
             </form>
-            
         </tr>
-
     </table>
-
 </section>
 {%endblock%}
