@@ -27,14 +27,9 @@ def select_all():
     sql = "SELECT * FROM products"
     results = run_sql(sql)
 
-    for row in results:
-        
-        product_type = product_type_repository.select(row['product_type_id']) # THIS IS  THE ISSUE
-        #product_type = ProductType("111",4)
-        brand = brand_repository.select(row['brand_id'])   # AND THIS IS THE ISSUE
-        #brand = Brand("bra1","bra1desc","w-d-bra1",3)
-        
-        # location = location_repository.select(row['location_id'])
+    for row in results:     
+        product_type = product_type_repository.select(row['product_type_id'])
+        brand = brand_repository.select(row['brand_id'])
         
         a_product = Product(
             row['name'],
@@ -63,7 +58,7 @@ def select(id):
     sql = "SELECT * FROM products WHERE id=%s"
     values = [id]
     result = run_sql(sql,values)[0]
-    #print(f"result: {result}")
+    
 
     if result is not None:
         product_type = product_type_repository.select(result['product_type_id'])
@@ -105,32 +100,11 @@ def update(product):
 
 
 def count(product):
-    #count = 0
+    
     sql = "SELECT COUNT(*) FROM products WHERE (name = %s AND product_type_id = %s AND brand_id = %s)"
-    #sql = "SELECT * FROM products WHERE (name = %s AND product_type_id = %s AND brand_id = %s)"
+    
     values = [product.name, product.product_type.id,product.brand.id]
     count = run_sql(sql,values)[0] 
-    #for result in results:
-     #   count+=1
+    
     return count
 
-# def count_total():
-#     sql = "SELECT COUNT (*) from products"
-#     result = run_sql(sql)[0][0]
-#     return result
-
-# def count_total2():
-#     sql = "SELECT COUNT (*) FROM products "
-#     result = run_sql(sql)[0][0]
-#     return result
-
-
-# def count_individual(product):
-#     sql = "SELECT 'name', COUNT(*) AS count FROM products WHERE name = %s"
-#     values = [product.name]
-#     result = run_sql(sql,values)
-#     return result
-
-
-
-# UPDATE one using ID

@@ -41,8 +41,3 @@ def update(brand):
     sql = "UPDATE brands SET (name, description, warranty_details) = (%s,%s,%s) WHERE id = %s"
     values = [brand.name,brand.description,brand.warranty_details,brand.id]
     run_sql(sql,values)
-
-
-
-
-#UPDATE one using ID

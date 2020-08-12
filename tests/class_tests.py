@@ -176,9 +176,7 @@ class TestProductTypeRepo(unittest.TestCase):
             all_type_names.append(row.name)
         actual = self.product_type_5.name in all_type_names#all_types_in_list
         self.assertEqual(expected,actual)
-        # print(self.product_type_5)
-        # print(product_type_repository.select_all()[0])
-        # print(actual)
+       
         product_type_repository.delete_all()
 
     def test_types_repo_content_names(self):
@@ -189,7 +187,7 @@ class TestProductTypeRepo(unittest.TestCase):
         for row in product_type_repository.select_all():
             results.append(row.name)
         actual = results
-        #actual = product_type_repository.select_all()
+        
         self.assertEqual(expected, actual)
         product_type_repository.delete_all()
 
@@ -205,13 +203,4 @@ class TestProductTypeRepo(unittest.TestCase):
 
 
 
-
-
-
-
-    # def test_(self):
-    #     expected =            #should Fail
-    #     expected =            #shouls Pass
-    #     actual =
-    #     self.assertEqual(expected,actual)
 
