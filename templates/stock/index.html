@@ -21,18 +21,19 @@
         {%for a_stock_item in stocks%}
         <tr>
             <th>{{a_stock_item.product.name}}</th>
-            <th id="descriptionCell">{{a_stock_item.product.description}}</th>
+            <th class="descriptionCell">{{a_stock_item.product.description}}</th>
             <th>{{a_stock_item.product.product_type.name}}</th>
             <th>{{a_stock_item.product.brand.name}}</th>
-            <th>{{a_stock_item.product.brand.description}}</th>
-            <th>{{a_stock_item.product.brand.warranty_details}}</th>
+            <th class="descriptionCell">{{a_stock_item.product.brand.description}}</th>
+            <th class="descriptionCell">{{a_stock_item.product.brand.warranty_details}}</th>
             <th>{{a_stock_item.product.warranty_length}}</th>
             <th>{{a_stock_item.product.distributor_price}}</th>
             <th>{{a_stock_item.product.sale_price}}</th>
             <th>{{a_stock_item.product.get_markup()}}</th>
             <th>{{a_stock_item.count1}}</th>
+            <th>{{a_stock_item.basket}}</th>
 
-            <th>bskt</th>
+            
             <th></th>
         </tr>
         {%endfor%}

@@ -78,7 +78,7 @@ text-align:  center;
     flex-grow: 1;
     
 } */
-#descriptionCell {
+.descriptionCell {
     font-size: 50%;
 }
 

@@ -14,9 +14,7 @@
             <th>Markup total</th>
             <th>Stock</th>
             <th>Basket</th>
-            <th>1</th>
-            <th>2</th>
-            <th>3</th>
+            
 
         </tr>
         {%for stock_item in stocks%}
@@ -38,10 +36,8 @@
             <th> {{stock_item.count1}}</th>
             {%endif%}
             <th>{{stock_item.basket}}</th>
-            <th>  1  </th>
-            <th>  2 </th>
-            <th>  3 </th>
-            <th>Restock</th>
+            
+            <th><button>Re-Order</button> </th>
 
         </tr>
         {%endfor%}

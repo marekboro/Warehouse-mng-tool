@@ -21,7 +21,7 @@
         <section id="productForm">
             <form id="productEditor" action="/edit/editTheProduct{{product.id}}" method="post">
                 <ul>
-                    <!-- <li> Name <input type="text" name="newProductName" placeholder="{{product.name}}"> </li>   -->
+                    
                     <li> Name <input type="text" name="newProductName" value="{{product.name}}"> </li>  
                     <li>Type <select name='type_choice' id="typesofproducts">
                             {%for type in types%}
