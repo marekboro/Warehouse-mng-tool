@@ -16,11 +16,27 @@
 7. Chant "Brace Brace" as yous way back and forth.
 
 # Brief: 
+## MVP:
+- [x] Inventory should track individual <code>products</code> including their: name, description, stock quantity, buying cost and selling price
+-[x] Should track manufacturers (<code>brand</code>), including: name and other details.
+-[x] Edit <code>brand</code>s, and <code>product</code>s seperately
+-[x] Create <code>brand</code>s, and <code>product</code>s seperately
+-[x] Show and inventory page that lists all details for all products
+-[x] Visually highlight LOW stock as well as OUT OF STOCK
+
+## EXTENSIONS:
+- [x] Added a basket feature that allows me to restock the products.
 
 
 
+##  relations classes and tables
 
+![class relations](classes.png)
+![table relations](tables.png)
 
+## Wireframe examples:
+![main interface](example1.png)
+![editing product interface](example2.png)
 
 
 # Some learning outcomes:
@@ -46,6 +62,9 @@
 3. Repositories and CRUD:
 - import run_sql from the relevant dir and the class from the location
 - create CRUD functions initiating them with the sql = "", values = [ This is a list] ,results = sql(sql,values)
+
+-- NOTE TO SELF!  ALWAYS USE   createdb database_name  in CONSOLE!  - to create the database before working on it
+-- psql -d inventory -f db/inventory.sql in console to create the tables
 
 CREATE
 READ

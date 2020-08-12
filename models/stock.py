@@ -1,7 +1,4 @@
-
-
 class Stock():
-    #def __init__(self, product, count = 0, id = None):
     def __init__(self, product, count1 = 0, basket =0, id = None):
         self.product = product
         self.count1 = count1
