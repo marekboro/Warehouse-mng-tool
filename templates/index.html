@@ -1,11 +1,11 @@
 {%extends 'base.html'%}
 {%block foo%}
 <section id="page1">
-    <h1> THE simple view table goes here BLOCK</h1>
+    <!-- <h1> THE simple view table goes here BLOCK</h1> -->
 
 
     <table class="simpletable">
-        <tr class = "titlerowintable">
+        <tr class="titlerowintable">
             <th>Name</th>
             <th>Brand</th>
             <th>cost</th>
@@ -14,12 +14,12 @@
             <th>Markup total</th>
             <th>Stock</th>
             <th>Basket</th>
-            
+            <th></th>
+
 
         </tr>
         {%for stock_item in stocks%}
-        <tr class = "hoveroverrow">
-
+        <tr class="hoveroverrow">
 
             <th>{{stock_item.product.name}}</th>
             <th>{{stock_item.product.brand.name}}</th>
@@ -27,17 +27,21 @@
             <th>{{stock_item.product.sale_price}}</th>
             <th>{{stock_item.product.get_markup()}}</th>
             <th>{{stock_item.get_markup_based_on_stock_count()}}</th>
-            
+
             {% if 0< stock_item.count1 < 10 %}
-            <th class = "lowStock">{{stock_item.count1}}</th>
+            <th class="lowStock">{{stock_item.count1}}</th>
             {% elif stock_item.count1 == 0 %}
-            <th class = "noStock"> {{stock_item.count1}}</th>
+            <th class="noStock"> {{stock_item.count1}}</th>
             {% else %}
             <th> {{stock_item.count1}}</th>
             {%endif%}
             <th>{{stock_item.basket}}</th>
-            
-            <th><button>Re-Order</button> </th>
+
+            <th>
+                <form action="/updatebasket10{{stock_item.id}}">
+                    <input type="submit" value="Re Order">
+                </form>
+            </th>
 
         </tr>
         {%endfor%}

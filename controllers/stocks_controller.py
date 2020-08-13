@@ -43,3 +43,11 @@ def update_basket(id):
     stock_repository.update(new_stock_item)
     return redirect("/basket")
 
+
+@stocks_blueprint.route("/updatebasket10<id>")
+def add_10_to_basket(id):
+    stock_item = stock_repository.select(id)
+    new_basket = stock_item.basket + 10
+    new_stock_item = Stock(stock_item.product, stock_item.count1, new_basket, id)
+    stock_repository.update(new_stock_item)
+    return redirect("/")
